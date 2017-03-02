@@ -15,6 +15,14 @@
 		7D742E9E1E65122200EABF88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D742E9C1E65122200EABF88 /* LaunchScreen.storyboard */; };
 		7D742EA91E65122200EABF88 /* AutoDoorProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D742EA81E65122200EABF88 /* AutoDoorProTests.m */; };
 		7D742EB41E65122200EABF88 /* AutoDoorProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D742EB31E65122200EABF88 /* AutoDoorProUITests.m */; };
+		7D742EC41E6512B900EABF88 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D742EC31E6512B900EABF88 /* CoreBluetooth.framework */; };
+		7D742EC91E65135D00EABF88 /* ControllDoorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D742EC81E65135D00EABF88 /* ControllDoorController.m */; };
+		7D742ECD1E6555F700EABF88 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D742ECC1E6555F700EABF88 /* SettingsController.m */; };
+		7D742ED01E6556F800EABF88 /* XHNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D742ECF1E6556F800EABF88 /* XHNavView.m */; };
+		7D7F50D21E665E6400446A4A /* SEFilterControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F50CF1E665E6400446A4A /* SEFilterControl.m */; };
+		7D7F50D31E665E6400446A4A /* SEFilterKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F50D11E665E6400446A4A /* SEFilterKnob.m */; };
+		7D7F50D71E669B4200446A4A /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F50D61E669B4200446A4A /* UIButton+Block.m */; };
+		B1A084B01B257BE883220318 /* libPods-AutoDoorPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBFE3BBB5A5B07B6CB9F03A /* libPods-AutoDoorPro.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7BBFE3BBB5A5B07B6CB9F03A /* libPods-AutoDoorPro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoDoorPro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D742E8B1E65122200EABF88 /* AutoDoorPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoDoorPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D742E8F1E65122200EABF88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D742E911E65122200EABF88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +60,22 @@
 		7D742EAF1E65122200EABF88 /* AutoDoorProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoDoorProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D742EB31E65122200EABF88 /* AutoDoorProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoDoorProUITests.m; sourceTree = "<group>"; };
 		7D742EB51E65122200EABF88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D742EC11E65124800EABF88 /* AutodoorPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutodoorPrefixHeader.pch; sourceTree = "<group>"; };
+		7D742EC31E6512B900EABF88 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		7D742EC71E65135D00EABF88 /* ControllDoorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllDoorController.h; sourceTree = "<group>"; };
+		7D742EC81E65135D00EABF88 /* ControllDoorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllDoorController.m; sourceTree = "<group>"; };
+		7D742ECB1E6555F700EABF88 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		7D742ECC1E6555F700EABF88 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		7D742ECE1E6556F800EABF88 /* XHNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHNavView.h; path = ../XHNavView.h; sourceTree = "<group>"; };
+		7D742ECF1E6556F800EABF88 /* XHNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHNavView.m; path = ../XHNavView.m; sourceTree = "<group>"; };
+		7D7F50CE1E665E6400446A4A /* SEFilterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEFilterControl.h; sourceTree = "<group>"; };
+		7D7F50CF1E665E6400446A4A /* SEFilterControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEFilterControl.m; sourceTree = "<group>"; };
+		7D7F50D01E665E6400446A4A /* SEFilterKnob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEFilterKnob.h; sourceTree = "<group>"; };
+		7D7F50D11E665E6400446A4A /* SEFilterKnob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEFilterKnob.m; sourceTree = "<group>"; };
+		7D7F50D51E669B4200446A4A /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
+		7D7F50D61E669B4200446A4A /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
+		C3136FBD5939C536188BD217 /* Pods-AutoDoorPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoDoorPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro.debug.xcconfig"; sourceTree = "<group>"; };
+		FBA2402617430B8ECD6447FC /* Pods-AutoDoorPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoDoorPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D742EC41E6512B900EABF88 /* CoreBluetooth.framework in Frameworks */,
+				B1A084B01B257BE883220318 /* libPods-AutoDoorPro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +105,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B86E52FA1016C5943C93671 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3136FBD5939C536188BD217 /* Pods-AutoDoorPro.debug.xcconfig */,
+				FBA2402617430B8ECD6447FC /* Pods-AutoDoorPro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7D742E821E65122200EABF88 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +121,8 @@
 				7D742EA71E65122200EABF88 /* AutoDoorProTests */,
 				7D742EB21E65122200EABF88 /* AutoDoorProUITests */,
 				7D742E8C1E65122200EABF88 /* Products */,
+				7D742EC21E6512B900EABF88 /* Frameworks */,
+				2B86E52FA1016C5943C93671 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +139,7 @@
 		7D742E8D1E65122200EABF88 /* AutoDoorPro */ = {
 			isa = PBXGroup;
 			children = (
+				7D742EC51E65132500EABF88 /* Class */,
 				7D742E911E65122200EABF88 /* AppDelegate.h */,
 				7D742E921E65122200EABF88 /* AppDelegate.m */,
 				7D742E941E65122200EABF88 /* ViewController.h */,
@@ -118,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				7D742E8F1E65122200EABF88 /* main.m */,
+				7D742EC11E65124800EABF88 /* AutodoorPrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -140,6 +180,66 @@
 			path = AutoDoorProUITests;
 			sourceTree = "<group>";
 		};
+		7D742EC21E6512B900EABF88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D742EC31E6512B900EABF88 /* CoreBluetooth.framework */,
+				7BBFE3BBB5A5B07B6CB9F03A /* libPods-AutoDoorPro.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D742EC51E65132500EABF88 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				7D7F50D81E669C1000446A4A /* Common */,
+				7D7F50D41E669B3A00446A4A /* Tools */,
+				7D742ECA1E6555E100EABF88 /* Settings */,
+				7D742EC61E65134500EABF88 /* ControlDoor */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		7D742EC61E65134500EABF88 /* ControlDoor */ = {
+			isa = PBXGroup;
+			children = (
+				7D742EC71E65135D00EABF88 /* ControllDoorController.h */,
+				7D742EC81E65135D00EABF88 /* ControllDoorController.m */,
+			);
+			path = ControlDoor;
+			sourceTree = "<group>";
+		};
+		7D742ECA1E6555E100EABF88 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7D7F50CE1E665E6400446A4A /* SEFilterControl.h */,
+				7D7F50CF1E665E6400446A4A /* SEFilterControl.m */,
+				7D7F50D01E665E6400446A4A /* SEFilterKnob.h */,
+				7D7F50D11E665E6400446A4A /* SEFilterKnob.m */,
+				7D742ECB1E6555F700EABF88 /* SettingsController.h */,
+				7D742ECC1E6555F700EABF88 /* SettingsController.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7D7F50D41E669B3A00446A4A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7D7F50D51E669B4200446A4A /* UIButton+Block.h */,
+				7D7F50D61E669B4200446A4A /* UIButton+Block.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		7D7F50D81E669C1000446A4A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7D742ECE1E6556F800EABF88 /* XHNavView.h */,
+				7D742ECF1E6556F800EABF88 /* XHNavView.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +247,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D742EB81E65122200EABF88 /* Build configuration list for PBXNativeTarget "AutoDoorPro" */;
 			buildPhases = (
+				950AED550D618BD0E307B0F5 /* [CP] Check Pods Manifest.lock */,
 				7D742E871E65122200EABF88 /* Sources */,
 				7D742E881E65122200EABF88 /* Frameworks */,
 				7D742E891E65122200EABF88 /* Resources */,
+				D211973676A79DBACB5810B2 /* [CP] Embed Pods Frameworks */,
+				F38EFAB0D7C3336E637211C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,13 +374,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		950AED550D618BD0E307B0F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D211973676A79DBACB5810B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F38EFAB0D7C3336E637211C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7D742E871E65122200EABF88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D7F50D21E665E6400446A4A /* SEFilterControl.m in Sources */,
+				7D7F50D31E665E6400446A4A /* SEFilterKnob.m in Sources */,
+				7D742EC91E65135D00EABF88 /* ControllDoorController.m in Sources */,
 				7D742E961E65122200EABF88 /* ViewController.m in Sources */,
+				7D742ECD1E6555F700EABF88 /* SettingsController.m in Sources */,
 				7D742E931E65122200EABF88 /* AppDelegate.m in Sources */,
+				7D7F50D71E669B4200446A4A /* UIButton+Block.m in Sources */,
+				7D742ED01E6556F800EABF88 /* XHNavView.m in Sources */,
 				7D742E901E65122200EABF88 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,9 +582,12 @@
 		};
 		7D742EB91E65122200EABF88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3136FBD5939C536188BD217 /* Pods-AutoDoorPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ZXJ5FY6Q8;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AutoDoorPro/AutodoorPrefixHeader.pch;
 				INFOPLIST_FILE = AutoDoorPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xhliang.AutoDoorPro;
@@ -437,9 +597,12 @@
 		};
 		7D742EBA1E65122200EABF88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBA2402617430B8ECD6447FC /* Pods-AutoDoorPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ZXJ5FY6Q8;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AutoDoorPro/AutodoorPrefixHeader.pch;
 				INFOPLIST_FILE = AutoDoorPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xhliang.AutoDoorPro;
@@ -516,6 +679,7 @@
 				7D742EBA1E65122200EABF88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D742EBB1E65122200EABF88 /* Build configuration list for PBXNativeTarget "AutoDoorProTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +688,7 @@
 				7D742EBD1E65122200EABF88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D742EBE1E65122200EABF88 /* Build configuration list for PBXNativeTarget "AutoDoorProUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +697,7 @@
 				7D742EC01E65122200EABF88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

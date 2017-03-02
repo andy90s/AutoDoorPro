@@ -1,0 +1,24 @@
+PODS:
+  - ASValueTrackingSlider (0.12.1)
+  - BabyBluetooth (0.7.0)
+  - Masonry (1.0.2)
+  - SVProgressHUD (2.1.2)
+  - Toast (3.1.0)
+
+DEPENDENCIES:
+  - ASValueTrackingSlider
+  - BabyBluetooth
+  - Masonry
+  - SVProgressHUD
+  - Toast
+
+SPEC CHECKSUMS:
+  ASValueTrackingSlider: 5261de3fcf00adb339efc93885e8f0bc99e703cd
+  BabyBluetooth: d50758aecf24d4a0ab9271d69f0f116d6bee51c9
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
+
+PODFILE CHECKSUM: 25455021d25b5443a0ac701b5b74044d7575e5af
+
+COCOAPODS: 1.1.1
