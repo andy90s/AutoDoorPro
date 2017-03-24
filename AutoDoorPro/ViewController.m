@@ -55,6 +55,10 @@
     self.navigationController.navigationBarHidden = YES;
     [self.view addSubview:self.navBar];
     [self.view addSubview:self.myTableView];
+    WEAK_SELF(weakSelf);
+    self.navBar.rightBlock = ^() {
+        [weakSelf refreshData];
+    };
 }
 
 - (void)prepareData {
@@ -63,7 +67,9 @@
 }
 // 刷新
 - (void)refreshData {
-    
+    [self.baby cancelAllPeripheralsConnection];
+    //设置委托后直接可以使用，无需等待CBCentralManagerStatePoweredOn状态。
+    self.baby.scanForPeripherals().begin();
 }
 
 //  MARK: - <----------TableViewDelegate---------->
@@ -93,9 +99,10 @@
     }
     
     cell.textLabel.text = peripheralName;
-    //信号和服务
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"RSSI:%@",RSSI];
+    // 信号和服务 mac
     
+    // cell.detailTextLabel.text = [NSString stringWithFormat:@"RSSI:%@",RSSI];
+    cell.detailTextLabel.text = [item objectForKey:@"device_mac"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -107,6 +114,8 @@
     ControllDoorController *vc = [ControllDoorController new];
     NSDictionary *item = self.peripheralDataArr[indexPath.row];
     CBPeripheral *peripheral = [item objectForKey:@"peripheral"];
+    vc.currPeripheral = peripheral;
+    vc->baby = self->_baby;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -123,8 +132,12 @@
     
     //设置扫描到设备的委托
     [self.baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
-        NSLog(@"搜索到了设备:%@",peripheral.name);
-        [weakSelf insertTableView:peripheral advertisementData:advertisementData RSSI:RSSI];
+        NSData *data = [advertisementData objectForKey:@"kCBAdvDataManufacturerData"];
+        NSString *mac = [[NSMutableString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        mac = [mac stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSLog(@"搜索到了设备:%@,MAC:%@",peripheral.name,mac);
+        
+        [weakSelf insertTableView:peripheral advertisementData:advertisementData RSSI:RSSI MAC:mac];
     }];
     
     
@@ -152,7 +165,7 @@
     }];
     
     
-    //设置查找设备的过滤器
+    //设置查找设备的过滤器 此处暂时未定规则
     [self.baby setFilterOnDiscoverPeripherals:^BOOL(NSString *peripheralName, NSDictionary *advertisementData, NSNumber *RSSI) {
         
         //最常用的场景是查找某一个前缀开头的设备
@@ -162,7 +175,7 @@
         //        return NO;
         
         //设置查找规则是名称大于0 ， the search rule is peripheral.name length > 0
-        if (peripheralName.length >0) {
+        if (peripheralName.length >= 0) {
             return YES;
         }
         return NO;
@@ -200,19 +213,18 @@
 }
 
 #pragma mark -UIViewController 方法
-//插入table数据
--(void)insertTableView:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
-    
+// 插入table数据
+-(void)insertTableView:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI MAC:(NSString *)mac {
     NSArray *peripherals = [self.peripheralDataArr valueForKey:@"peripheral"];
     if(![peripherals containsObject:peripheral]) {
         NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:peripherals.count inSection:0];
         [indexPaths addObject:indexPath];
-        
         NSMutableDictionary *item = [[NSMutableDictionary alloc] init];
         [item setValue:peripheral forKey:@"peripheral"];
         [item setValue:RSSI forKey:@"RSSI"];
         [item setValue:advertisementData forKey:@"advertisementData"];
+        [item setValue:mac forKey:@"device_mac"];
         [self.peripheralDataArr  addObject:item];
         
         [self.myTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -228,6 +240,7 @@
         _myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, APPW, APPH - 64) style:UITableViewStylePlain];
         _myTableView.delegate = self;
         _myTableView.dataSource = self;
+        _myTableView.tableFooterView = [UIView new];
         [_myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     }
     return _myTableView;
@@ -251,7 +264,7 @@
     if (!_navBar) {
         _navBar = [XHNavView new];
         _navBar.navTitle = @"Demo";
-        _navBar.iconName = @"brandIcon";
+        _navBar.iconName = @"ic_launcher";
         _navBar.rightTitle = @"刷新";
     }
     return _navBar;

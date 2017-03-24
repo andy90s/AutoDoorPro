@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "UMConfig.h"
 
 
 @interface AppDelegate ()
@@ -20,6 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSArray *centralManagerIdentifiers = launchOptions[UIApplicationLaunchOptionsBluetoothCentralsKey];
     NSLog(@"%@",centralManagerIdentifiers);
+    // Crash统计
+    [UMConfig umeiUmAnalyticsInitial];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[ViewController new]];
     [self.window makeKeyAndVisible];

@@ -26,6 +26,8 @@
     return self;
 }
 
+
+
 - (instancetype)init {
     if (self = [super init]) {
         [self commonInit];
@@ -72,7 +74,7 @@
 //  MARK: - <----------CommonInit---------->
 
 - (void)commonInit {
-    self.backgroundColor = [UIColor colorWithRed:0.17 green:0.69 blue:0.80 alpha:1.00];
+    self.backgroundColor = [UIColor colorWithRed:0.44 green:0.72 blue:0.22 alpha:1.00];
     // 标题
     
     [self addSubview:self.titleLab];

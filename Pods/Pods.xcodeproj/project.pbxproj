@@ -7,78 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01E09711F001C49F92A97060414E262B /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2966CBAF6057543BEC8F60335320749E /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0CE75737E7F9416BCA28C6F02AE2430E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E978135E4741E70986F248DFBC35C27 /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		0D5CF00AA1226E3E0E7DD1DD925F76BF /* BabyPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7B797A815DD706569B0308C4F843DA /* BabyPeripheralManager.m */; };
-		0EC17D9421F780CD79002E73595134FF /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58AB6C58C0C2AB76E50884F074EDA2C1 /* SVIndefiniteAnimatedView.m */; };
-		13635B78121B99E5C03C92506A161607 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A17CE1651F19EF837BAC37DD907B2F3 /* MASViewAttribute.m */; };
-		17B936EE7EA060E3E043A38DF1F906D6 /* ASValuePopUpView.h in Headers */ = {isa = PBXBuildFile; fileRef = 838BC4B115707173B562C9E28FA57510 /* ASValuePopUpView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		189089D2CF429C83EA04607BA6D8764B /* BabySpeaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5C456B8AD79F6490A9641DA58B5B23 /* BabySpeaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01E09711F001C49F92A97060414E262B /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3C084C6B4E6E15D8C610826C1D36E2 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CE75737E7F9416BCA28C6F02AE2430E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = D26C1F03CA71A025F26B09105D7ACB8F /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0D5CF00AA1226E3E0E7DD1DD925F76BF /* BabyPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE0249F4ADECB731EC173736ECF4AEA /* BabyPeripheralManager.m */; };
+		0EC17D9421F780CD79002E73595134FF /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4004DA806B5213164467994FBB28E /* SVIndefiniteAnimatedView.m */; };
+		13635B78121B99E5C03C92506A161607 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = BD654758CADEE2B647676C227A397985 /* MASViewAttribute.m */; };
+		17B936EE7EA060E3E043A38DF1F906D6 /* ASValuePopUpView.h in Headers */ = {isa = PBXBuildFile; fileRef = 87D739EB3E7E1596CAD7D923455D495F /* ASValuePopUpView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		189089D2CF429C83EA04607BA6D8764B /* BabySpeaker.h in Headers */ = {isa = PBXBuildFile; fileRef = E7020A623553C06CE27C1D60AFE9926D /* BabySpeaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EC363D6911160B063DB6CC87F595A5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF675A168132FD52AED630F977FE906 /* UIKit.framework */; };
-		1F3BD3BC28432BB5E2F73501E06E4579 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 86F1397C4B52A9FA19AEFABF5F888959 /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2139E7C77C19655DB52B59307AE3306D /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2172825002AE36B34EBF47ABE4576BD /* SVProgressHUD-dummy.m */; };
-		21F329E651E0B72A6E4AC9559C92A1E2 /* BabyRhythm.h in Headers */ = {isa = PBXBuildFile; fileRef = A4E41981F099A9D67D30B00BFAB39D04 /* BabyRhythm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F3BD3BC28432BB5E2F73501E06E4579 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 66275375D036B06ABD2F9A1B5DD02D53 /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2139E7C77C19655DB52B59307AE3306D /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F2BC885E9104964F9F549AD5D76C1 /* SVProgressHUD-dummy.m */; };
+		21F329E651E0B72A6E4AC9559C92A1E2 /* BabyRhythm.h in Headers */ = {isa = PBXBuildFile; fileRef = 922AB45453AD38C5F3F089B517B4A707 /* BabyRhythm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28AF4B6F518088301106872E92EA8827 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0203FCF2E38F9E0B8C4E69853543A3E /* QuartzCore.framework */; };
-		2B1ADFEFBA8551165A913AD2D9BE8BE2 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 167B3241A980B41EADACD7867871F3B6 /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DBB74B8B5DDB1F621433DD12BF35102 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AA6EB3B2AB981DD53D84618B468377 /* MASViewConstraint.m */; };
-		38D2FB433436563E1FE4A39287496D79 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 95A576588F13D2F1DB3DD7DAE951E3DF /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B1ADFEFBA8551165A913AD2D9BE8BE2 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 177348DC27C19A5FADE6CE617BB1CA6D /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DBB74B8B5DDB1F621433DD12BF35102 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 36286B4CCC06EE3671D6DC7FFE34F8BB /* MASViewConstraint.m */; };
+		38D2FB433436563E1FE4A39287496D79 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = A879C86878A3A6933D03A98DB58C2D3B /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39103650BCD9B9AA4189F9F1A9C16265 /* Pods-AutoDoorPro-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB08020C03413429A28BB3BC9938346A /* Pods-AutoDoorPro-dummy.m */; };
-		3AB17EF6190E0AFA8FFD8AD2990D8BC6 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 76136BDC0A6CB5DFA1210D40C273DBC7 /* SVProgressHUD.m */; };
-		3E8E6916C563B9CB12AA417275FC6EB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A19DEA48D105F8422F6AC722FBE9BBC /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		490CA524521F7D444EA58FA915D7E99C /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 314E228AB2F34990FBCE695C10F742FC /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49B903D576E09560C52AA92FDCC31A68 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B81E42836595AAC846784DA3437F297 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CBE1B46550A3FB90FDD1CB9CBA7B7FE /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D8AB34FCFF7E36BDA395E1A0AC33C859 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AB17EF6190E0AFA8FFD8AD2990D8BC6 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A94DFC196240B4BC9D1C429D49A75FB6 /* SVProgressHUD.m */; };
+		3E8E6916C563B9CB12AA417275FC6EB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD959072BAC66178F68E6B1395EA79BA /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		490CA524521F7D444EA58FA915D7E99C /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B777DE2C5179592BDB6E6562E9DFD76 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49B903D576E09560C52AA92FDCC31A68 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 73AF8424FDE299FA7BA88B123D751C3C /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CBE1B46550A3FB90FDD1CB9CBA7B7FE /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B599C458FBC8A0FFD7551C63CB1813A4 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566EA65277D377CE9AF9BC125521965B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
 		5D82519030D426228D1A8C57CDBB8F72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
-		61CCEA01CBE8EFFA5515E7A0D8635AAE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4CC85B84EAA6B7E4806AC83127FD5 /* MASCompositeConstraint.m */; };
-		6249770A7D163B0F3001D5A76C5FA01C /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = A4AD6986C356F0021838DF6B689271D3 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62F7EFE2AA8D447BE1F11B437BDF51AB /* ASValueTrackingSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = BD45234526507F84BF7609DE559F7FBA /* ASValueTrackingSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		68216322A1397D13C4672F5BFB6BAE2A /* BabyBluetooth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3684545B365A814F50FA28ADAD854A7 /* BabyBluetooth-dummy.m */; };
-		68F98758BA84B8EC3472A8C6FD646D16 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44285AD0B6466E74D32CA3FFF43CEEE2 /* Masonry-dummy.m */; };
-		6E30295EEDAB51C6E626A80446C92C18 /* BabyBluetooth.h in Headers */ = {isa = PBXBuildFile; fileRef = 76B288AF584D49F86C6FABAA21D4FEC0 /* BabyBluetooth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		725610C0709D59129AA21BFC641B4CA5 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D288AE6180D61423A0679EF3249069CC /* SVProgressAnimatedView.m */; };
-		72A1485CE7902135708D05315D3D075C /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B309C8E48DE00648A7AE9E587A5A2727 /* ASValueTrackingSlider.m */; };
-		7681427B4B48831724D10EF4B8174927 /* BabyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = AED23174019F40C62394E9BABE12F3F6 /* BabyDefine.m */; };
-		78B3B735F7459684CA85D44D31153FA1 /* BabyRhythm.m in Sources */ = {isa = PBXBuildFile; fileRef = 70130F5CBEF289BB6EA703DB23E2D08F /* BabyRhythm.m */; };
-		7AC23189D23F57D3C4B01B5192864082 /* Toast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF16F5C7BC2B1ED2210D7FBEB5EE86A /* Toast-dummy.m */; };
-		7BDDE51AF16FA53A09506EDB91E1C3C2 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8363F8E2BCCF730223AE3C8B91B9F8C3 /* NSArray+MASAdditions.m */; };
-		823DA3ACD9F2AA61FEB41205C435E016 /* BabyCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A56045E78B30D68E7BAF358E6CB79B6 /* BabyCallback.m */; };
-		86EE1CB5473A4A07081D8DE3A2C45924 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E9710D3418CB88D563EF2012537D6F43 /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		89450A58FD91E5B227171FC75160E4EA /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B382C152B561FBDE39E3337F447D243 /* MASConstraint.m */; };
-		8FD4C75A0443F6B8EFBFD26B50079FA9 /* BabyOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 336B1D0691640012F75B5C58FA13C3A6 /* BabyOptions.m */; };
-		955BE39896CA35F2A585DC3309E5FDA5 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A716622D4D6E8EB5B19527DF8D88B99 /* MASLayoutConstraint.m */; };
-		983CB852CBBFBC04C2A6BA407E34F59B /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 373AD8B7E5F073535B1EF2F8897CA134 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9934AEA2C891C201D8ED5746FF42FE1B /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 933993B1F91FB2C716906C2FB5861C09 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D19ECF9CF1C8053317F98A0C9AAF996 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AB9CAE7CAE355F95CE99A63A633E5 /* ASValuePopUpView.m */; };
+		61CCEA01CBE8EFFA5515E7A0D8635AAE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9AF61D3EFB1FDB0838295649E1597C /* MASCompositeConstraint.m */; };
+		6249770A7D163B0F3001D5A76C5FA01C /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB5C9AB31C39E4A98D1A9B837C9541B /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62F7EFE2AA8D447BE1F11B437BDF51AB /* ASValueTrackingSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = C16663A49649A4AFE2D20E22331A2516 /* ASValueTrackingSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68216322A1397D13C4672F5BFB6BAE2A /* BabyBluetooth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7859057EDF3949D8E1B9616D56E0D0CD /* BabyBluetooth-dummy.m */; };
+		68F98758BA84B8EC3472A8C6FD646D16 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 35464BA91C5DD7B072A7AAB5E0F1AE55 /* Masonry-dummy.m */; };
+		6E30295EEDAB51C6E626A80446C92C18 /* BabyBluetooth.h in Headers */ = {isa = PBXBuildFile; fileRef = C900239604F8A778A29EFE524777CED8 /* BabyBluetooth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		725610C0709D59129AA21BFC641B4CA5 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF2BECF948EBF854FA9D0CE5FC0544F /* SVProgressAnimatedView.m */; };
+		72A1485CE7902135708D05315D3D075C /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D577ECD944D0BDC7D8DD8BE7F89CA3CF /* ASValueTrackingSlider.m */; };
+		7681427B4B48831724D10EF4B8174927 /* BabyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5507CF09CF56B5A8524754ED4C441A /* BabyDefine.m */; };
+		78B3B735F7459684CA85D44D31153FA1 /* BabyRhythm.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A4A914E710DBC4F4C7334179B0B70 /* BabyRhythm.m */; };
+		7AC23189D23F57D3C4B01B5192864082 /* Toast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB5658167E2D405BA8FA98BFB4808C6 /* Toast-dummy.m */; };
+		7BDDE51AF16FA53A09506EDB91E1C3C2 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C46E578348A8CC182CF5192C56547 /* NSArray+MASAdditions.m */; };
+		823DA3ACD9F2AA61FEB41205C435E016 /* BabyCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 652EB455DBF3A15EFB2350E17AE91CCD /* BabyCallback.m */; };
+		86EE1CB5473A4A07081D8DE3A2C45924 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B3BC5EFC07561A546A1AA9CE90E3FB /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89450A58FD91E5B227171FC75160E4EA /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E50D9552F1587261A68A7A2124334166 /* MASConstraint.m */; };
+		8FD4C75A0443F6B8EFBFD26B50079FA9 /* BabyOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = D19AD8536C116BD511E68956D2D5CF8F /* BabyOptions.m */; };
+		955BE39896CA35F2A585DC3309E5FDA5 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33DF521EABE1912BC8CCD8027A3D75 /* MASLayoutConstraint.m */; };
+		983CB852CBBFBC04C2A6BA407E34F59B /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E29A1944E31BBF21BC232965E7918118 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9934AEA2C891C201D8ED5746FF42FE1B /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B12748536F376618CCAF71E504E807BE /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D19ECF9CF1C8053317F98A0C9AAF996 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 594078B08A090D831D638338D16F3F8F /* ASValuePopUpView.m */; };
 		A1862D7151CF4E76EC0CF9916BE0BE21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
-		A1FA046FDFC42676D17FEC387B10D24A /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69776DE6DB54EB0C4068AE8A56181939 /* View+MASAdditions.m */; };
-		A224D00F2BE3E1C14E316A6EA711E8EE /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 764CF75609B416F894042A6001C04FE3 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A2A2384846F2B0339E6C7E4ACCACDC0E /* BabyBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A83E7DA3AAFE4941D0C1ECF10D19C4B /* BabyBluetooth.m */; };
-		A357C49D39B2682FC57B9B4407BF605D /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C49ACF8F0DE09B3133849D6F266B2F /* BabyToy.m */; };
-		A6436E3CFFCBFE591E2D2A68ED90CAC6 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A70468FA1A3DC41773DC89C25A1C286 /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A83991D7C1373DF66020C2FDFC5D7564 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 0003465EB10219F59EE9895F76AA61E8 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1FA046FDFC42676D17FEC387B10D24A /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D72A7B459FF164279D7C9C5EC3AE5A6 /* View+MASAdditions.m */; };
+		A224D00F2BE3E1C14E316A6EA711E8EE /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F06CA1A2CC43B102107E42074F49FBF /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2A2384846F2B0339E6C7E4ACCACDC0E /* BabyBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B3022BF3D583A283B8E8E76293DA13 /* BabyBluetooth.m */; };
+		A357C49D39B2682FC57B9B4407BF605D /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1B8DAC009AB7062386204FAADC762 /* BabyToy.m */; };
+		A6436E3CFFCBFE591E2D2A68ED90CAC6 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C769670CC68772FD96A70CFDDCE9AD /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A83991D7C1373DF66020C2FDFC5D7564 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = FE0080E91EDA2CCBAB97BF51D0288551 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3432888E69C8455CB440B978C35BBB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
-		B3B3A9EBAEE1EC1E9DDF7ACFAB2B525F /* ASValueTrackingSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9123AEA44713746B3DB8907F2EFB1898 /* ASValueTrackingSlider-dummy.m */; };
-		B898221427ACD42D47C0363A4AC914D7 /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = E580CA668C49CF2D518D41279F167DF1 /* SVRadialGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BC599E23988C6D0D0AFEE0B81867E2CA /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C79C619D8AF93D4BFD52FA72CA367BC5 /* SVRadialGradientLayer.m */; };
-		C39EB7AB2744FF9826F3CBD1D85AD649 /* BabyCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = AAF2EB120B1D71C6866843A71D863061 /* BabyCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C88F85D3200060BD98FC13EA58121706 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 502DEBFB05442D44DDFBA7C27EE6EDA2 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CB46BDD2F505FD4C0BC3A3D212238A55 /* BabySpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 085570079F9D41DCADAA6A0B3517AAE3 /* BabySpeaker.m */; };
+		B3B3A9EBAEE1EC1E9DDF7ACFAB2B525F /* ASValueTrackingSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D32FE99DD4E5881B5241975F3AB9D1 /* ASValueTrackingSlider-dummy.m */; };
+		B898221427ACD42D47C0363A4AC914D7 /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8564E75471E9A445F4F4275CAD640E1F /* SVRadialGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC599E23988C6D0D0AFEE0B81867E2CA /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C54D0F7A898C17FFAA5FBA850FB741 /* SVRadialGradientLayer.m */; };
+		C39EB7AB2744FF9826F3CBD1D85AD649 /* BabyCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A914CF3B1834616ADA45B8EA7EAF59 /* BabyCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C88F85D3200060BD98FC13EA58121706 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A8226E4B91B880F84A5D22E2CF6C86C /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB46BDD2F505FD4C0BC3A3D212238A55 /* BabySpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE162368A4E040FB9AC9BCDF5EA22A /* BabySpeaker.m */; };
 		D1A2BABD017D73985BBC6277B7EEA335 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
-		D7CE05A743B7ACD50796191FA442814C /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C663AC6A480A405E1A8E5AF07C2680E /* ViewController+MASAdditions.m */; };
-		D9601A235C598AF2FC78F35D027DA95B /* BabyCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91AD0A929602FFD8FE676CA1972B013 /* BabyCentralManager.m */; };
-		DDFB9D8E0612A7F6151A240A805D17B7 /* BabyPeripheralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D5318ADCC0F89C4113CE2E62A1C18C0E /* BabyPeripheralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF7F88B58B564EDF169EC0C9CF8E5124 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BAFDD2E624D8DFE06E7EE45C0D44FD /* MASConstraintMaker.m */; };
-		E072DA57403C4BFF9B10467BE05604C5 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E9F4A53D7767674239AA23873F61D02 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E1E771349813022263F549BDF33CB4BB /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 38810627BD6F4A5AAF9C6AC98D4478CC /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5A4C7FDB4395B539F28307C74029C6A /* BabyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = C935175BADCD79F7DB57DD761A27DDAA /* BabyDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E692A50B8E3E7B5B8C1A925A52592D86 /* BabyCentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C522580DD7E078C49B7186E1C3BACCF /* BabyCentralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7644BBE0B8D8C343874B904A90CA9B8 /* BabyToy.h in Headers */ = {isa = PBXBuildFile; fileRef = B23AC689D9288A44A01B129D3A2E2C8F /* BabyToy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC48DE078CA5E55922CCE02354D475CD /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 726F1503E8D82E46E0F88D308CC98A75 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7CE05A743B7ACD50796191FA442814C /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B8229D14755B8B261C1519B420627B99 /* ViewController+MASAdditions.m */; };
+		D9601A235C598AF2FC78F35D027DA95B /* BabyCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FD35491EE1BD392AEB53B7F7DA8296 /* BabyCentralManager.m */; };
+		DDFB9D8E0612A7F6151A240A805D17B7 /* BabyPeripheralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 637E493D033011720ED9A9564983AC43 /* BabyPeripheralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF7F88B58B564EDF169EC0C9CF8E5124 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EBD0D4D53C4849F4646463BA1533BF /* MASConstraintMaker.m */; };
+		E072DA57403C4BFF9B10467BE05604C5 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 04A6A230201ECCB52097697C8B3A8650 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1E771349813022263F549BDF33CB4BB /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = B739CEC652920503E001E804BB830EB8 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5A4C7FDB4395B539F28307C74029C6A /* BabyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 513D6E04C2996C75E36BA37BBBF6A57C /* BabyDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E692A50B8E3E7B5B8C1A925A52592D86 /* BabyCentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F771CABE9BECAB6AF1C3B94CCFC1DD /* BabyCentralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7644BBE0B8D8C343874B904A90CA9B8 /* BabyToy.h in Headers */ = {isa = PBXBuildFile; fileRef = 968471A052983FC1E71CA285634281D1 /* BabyToy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC48DE078CA5E55922CCE02354D475CD /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF54F45D5B9E5A3646EBB59ADC0C57A /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EECA624EC3BCA115415F774807C3E85F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0203FCF2E38F9E0B8C4E69853543A3E /* QuartzCore.framework */; };
-		F1F5EC682076627134D77BC79AC7B8D5 /* BabyOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 769BE81CBE7045474B09E9CA8A030BA9 /* BabyOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1F5EC682076627134D77BC79AC7B8D5 /* BabyOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EEC6E0EEA7EEF416F88A25A382BA813 /* BabyOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F83B128DC5D04B5F2BB69B33E244A226 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
-		FCC1241626FB88928C0F2B8BAFE2F72B /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EFCDF6515AA97E56AA95914CA36D755 /* UIView+Toast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCC1241626FB88928C0F2B8BAFE2F72B /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C86429DA152420E8237AE3B79FDBB28 /* UIView+Toast.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,96 +120,97 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0003465EB10219F59EE9895F76AA61E8 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
+		01C54D0F7A898C17FFAA5FBA850FB741 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		040F2BC885E9104964F9F549AD5D76C1 /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		04A6A230201ECCB52097697C8B3A8650 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		068EC4E50271F223EB636328CCA135BF /* Pods-AutoDoorPro-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutoDoorPro-resources.sh"; sourceTree = "<group>"; };
-		085570079F9D41DCADAA6A0B3517AAE3 /* BabySpeaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabySpeaker.m; path = Classes/objc/BabySpeaker.m; sourceTree = "<group>"; };
-		0A56045E78B30D68E7BAF358E6CB79B6 /* BabyCallback.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyCallback.m; path = Classes/objc/BabyCallback.m; sourceTree = "<group>"; };
-		157D84CCE3B13B7E942528E8751611F6 /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
-		167B3241A980B41EADACD7867871F3B6 /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
-		1E9F4A53D7767674239AA23873F61D02 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		2966CBAF6057543BEC8F60335320749E /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
-		2B382C152B561FBDE39E3337F447D243 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
-		314E228AB2F34990FBCE695C10F742FC /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		336B1D0691640012F75B5C58FA13C3A6 /* BabyOptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyOptions.m; path = Classes/objc/BabyOptions.m; sourceTree = "<group>"; };
-		373AD8B7E5F073535B1EF2F8897CA134 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		38810627BD6F4A5AAF9C6AC98D4478CC /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
-		3AF16F5C7BC2B1ED2210D7FBEB5EE86A /* Toast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-dummy.m"; sourceTree = "<group>"; };
-		3BE3C58198E1FDD6DD62C05AD7810DD8 /* BabyBluetooth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BabyBluetooth-prefix.pch"; sourceTree = "<group>"; };
-		3E978135E4741E70986F248DFBC35C27 /* UIView+Toast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Toast/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
-		3EFCDF6515AA97E56AA95914CA36D755 /* UIView+Toast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Toast/Toast/UIView+Toast.h"; sourceTree = "<group>"; };
-		44285AD0B6466E74D32CA3FFF43CEEE2 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
-		4A716622D4D6E8EB5B19527DF8D88B99 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
-		502DEBFB05442D44DDFBA7C27EE6EDA2 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		54BAFDD2E624D8DFE06E7EE45C0D44FD /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
-		58AB6C58C0C2AB76E50884F074EDA2C1 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		5A17CE1651F19EF837BAC37DD907B2F3 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
-		5A19DEA48D105F8422F6AC722FBE9BBC /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		5A83E7DA3AAFE4941D0C1ECF10D19C4B /* BabyBluetooth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyBluetooth.m; path = Classes/objc/BabyBluetooth.m; sourceTree = "<group>"; };
+		0712AAABF6DF810CA354EC6ADCE19AAA /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
+		07FD35491EE1BD392AEB53B7F7DA8296 /* BabyCentralManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyCentralManager.m; path = Classes/objc/BabyCentralManager.m; sourceTree = "<group>"; };
+		097A4A914E710DBC4F4C7334179B0B70 /* BabyRhythm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyRhythm.m; path = Classes/objc/BabyRhythm.m; sourceTree = "<group>"; };
+		177348DC27C19A5FADE6CE617BB1CA6D /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		1F06CA1A2CC43B102107E42074F49FBF /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		25ADD9438651F52FCCFB229AC8F9E013 /* BabyBluetooth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BabyBluetooth.xcconfig; sourceTree = "<group>"; };
+		2A8226E4B91B880F84A5D22E2CF6C86C /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		2CF54F45D5B9E5A3646EBB59ADC0C57A /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
+		2ECAA9C4A99FA81C022A59CD60E31711 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		2FF2BECF948EBF854FA9D0CE5FC0544F /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		35464BA91C5DD7B072A7AAB5E0F1AE55 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
+		36286B4CCC06EE3671D6DC7FFE34F8BB /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
+		3BBE162368A4E040FB9AC9BCDF5EA22A /* BabySpeaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabySpeaker.m; path = Classes/objc/BabySpeaker.m; sourceTree = "<group>"; };
+		3F33DF521EABE1912BC8CCD8027A3D75 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		41A4004DA806B5213164467994FBB28E /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		4B777DE2C5179592BDB6E6562E9DFD76 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		4B9AF61D3EFB1FDB0838295649E1597C /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
+		50EBD0D4D53C4849F4646463BA1533BF /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
+		51238087A93927E99EFECE3A596D2B30 /* Toast.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Toast.xcconfig; sourceTree = "<group>"; };
+		513D6E04C2996C75E36BA37BBBF6A57C /* BabyDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyDefine.h; path = Classes/objc/BabyDefine.h; sourceTree = "<group>"; };
+		51B3022BF3D583A283B8E8E76293DA13 /* BabyBluetooth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyBluetooth.m; path = Classes/objc/BabyBluetooth.m; sourceTree = "<group>"; };
+		594078B08A090D831D638338D16F3F8F /* ASValuePopUpView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASValuePopUpView.m; path = ASValueTrackingSlider/ASValuePopUpView.m; sourceTree = "<group>"; };
+		5A3C084C6B4E6E15D8C610826C1D36E2 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		5BF675A168132FD52AED630F977FE906 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		5D489E77D3A892CF8A194DCECA06CD25 /* Pods-AutoDoorPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutoDoorPro.debug.xcconfig"; sourceTree = "<group>"; };
-		65AA6EB3B2AB981DD53D84618B468377 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		69776DE6DB54EB0C4068AE8A56181939 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
-		6DE4CC85B84EAA6B7E4806AC83127FD5 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
-		6E5C456B8AD79F6490A9641DA58B5B23 /* BabySpeaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabySpeaker.h; path = Classes/objc/BabySpeaker.h; sourceTree = "<group>"; };
-		6E7B797A815DD706569B0308C4F843DA /* BabyPeripheralManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyPeripheralManager.m; path = Classes/objc/BabyPeripheralManager.m; sourceTree = "<group>"; };
-		70130F5CBEF289BB6EA703DB23E2D08F /* BabyRhythm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyRhythm.m; path = Classes/objc/BabyRhythm.m; sourceTree = "<group>"; };
-		726F1503E8D82E46E0F88D308CC98A75 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
-		7530434BFD6EEE311D8177D6A6BCCD07 /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
-		76136BDC0A6CB5DFA1210D40C273DBC7 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
-		764CF75609B416F894042A6001C04FE3 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		769BE81CBE7045474B09E9CA8A030BA9 /* BabyOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyOptions.h; path = Classes/objc/BabyOptions.h; sourceTree = "<group>"; };
-		76B288AF584D49F86C6FABAA21D4FEC0 /* BabyBluetooth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyBluetooth.h; path = Classes/objc/BabyBluetooth.h; sourceTree = "<group>"; };
+		637E493D033011720ED9A9564983AC43 /* BabyPeripheralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyPeripheralManager.h; path = Classes/objc/BabyPeripheralManager.h; sourceTree = "<group>"; };
+		652EB455DBF3A15EFB2350E17AE91CCD /* BabyCallback.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyCallback.m; path = Classes/objc/BabyCallback.m; sourceTree = "<group>"; };
+		66275375D036B06ABD2F9A1B5DD02D53 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		67A914CF3B1834616ADA45B8EA7EAF59 /* BabyCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyCallback.h; path = Classes/objc/BabyCallback.h; sourceTree = "<group>"; };
+		69B3BC5EFC07561A546A1AA9CE90E3FB /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
+		6EEC6E0EEA7EEF416F88A25A382BA813 /* BabyOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyOptions.h; path = Classes/objc/BabyOptions.h; sourceTree = "<group>"; };
+		73AF8424FDE299FA7BA88B123D751C3C /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
+		76AFFF670099C253161370B137E28AAC /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = umsdk_IOS_analyics_idfa_v4.1.8/UMMobClick.framework; sourceTree = "<group>"; };
 		771B6BFCEA970B5C59251C304753BC6D /* libASValueTrackingSlider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libASValueTrackingSlider.a; path = libASValueTrackingSlider.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A70468FA1A3DC41773DC89C25A1C286 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
-		7B81E42836595AAC846784DA3437F297 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
-		7C663AC6A480A405E1A8E5AF07C2680E /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		7DE2647BD7173D22B42469250B0B6DE9 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
-		8363F8E2BCCF730223AE3C8B91B9F8C3 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		838BC4B115707173B562C9E28FA57510 /* ASValuePopUpView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASValuePopUpView.h; path = ASValueTrackingSlider/ASValuePopUpView.h; sourceTree = "<group>"; };
+		7859057EDF3949D8E1B9616D56E0D0CD /* BabyBluetooth-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BabyBluetooth-dummy.m"; sourceTree = "<group>"; };
+		7DAC08D5D239C4A55A4458D1719EB855 /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		7E2087A9D86AA0EDDBDE6C1F7CBB5B9A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		81F771CABE9BECAB6AF1C3B94CCFC1DD /* BabyCentralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyCentralManager.h; path = Classes/objc/BabyCentralManager.h; sourceTree = "<group>"; };
 		84C69090FF76231F9BD85B599A556343 /* libBabyBluetooth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libBabyBluetooth.a; path = libBabyBluetooth.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		86F1397C4B52A9FA19AEFABF5F888959 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		8564E75471E9A445F4F4275CAD640E1F /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		87D739EB3E7E1596CAD7D923455D495F /* ASValuePopUpView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASValuePopUpView.h; path = ASValueTrackingSlider/ASValuePopUpView.h; sourceTree = "<group>"; };
 		8B0384AD5CB050C0E4BA798245BAF6E9 /* libPods-AutoDoorPro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-AutoDoorPro.a"; path = "libPods-AutoDoorPro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C522580DD7E078C49B7186E1C3BACCF /* BabyCentralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyCentralManager.h; path = Classes/objc/BabyCentralManager.h; sourceTree = "<group>"; };
-		9123AEA44713746B3DB8907F2EFB1898 /* ASValueTrackingSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASValueTrackingSlider-dummy.m"; sourceTree = "<group>"; };
-		933993B1F91FB2C716906C2FB5861C09 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		922AB45453AD38C5F3F089B517B4A707 /* BabyRhythm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyRhythm.h; path = Classes/objc/BabyRhythm.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		95A576588F13D2F1DB3DD7DAE951E3DF /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
-		A4AD6986C356F0021838DF6B689271D3 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		A4E41981F099A9D67D30B00BFAB39D04 /* BabyRhythm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyRhythm.h; path = Classes/objc/BabyRhythm.h; sourceTree = "<group>"; };
-		AA6FB0C264897CB502C0C4D6BB61BBFB /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
-		AAF2EB120B1D71C6866843A71D863061 /* BabyCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyCallback.h; path = Classes/objc/BabyCallback.h; sourceTree = "<group>"; };
-		AED23174019F40C62394E9BABE12F3F6 /* BabyDefine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyDefine.m; path = Classes/objc/BabyDefine.m; sourceTree = "<group>"; };
-		B23AC689D9288A44A01B129D3A2E2C8F /* BabyToy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyToy.h; path = Classes/objc/BabyToy.h; sourceTree = "<group>"; };
-		B309C8E48DE00648A7AE9E587A5A2727 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASValueTrackingSlider.m; path = ASValueTrackingSlider/ASValueTrackingSlider.m; sourceTree = "<group>"; };
-		B5F7AEBD23B42D3A3A7A6AF266B34EE6 /* Toast.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Toast.xcconfig; sourceTree = "<group>"; };
+		968471A052983FC1E71CA285634281D1 /* BabyToy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyToy.h; path = Classes/objc/BabyToy.h; sourceTree = "<group>"; };
+		9C86429DA152420E8237AE3B79FDBB28 /* UIView+Toast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Toast/Toast/UIView+Toast.h"; sourceTree = "<group>"; };
+		9D72A7B459FF164279D7C9C5EC3AE5A6 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		A879C86878A3A6933D03A98DB58C2D3B /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		A94DFC196240B4BC9D1C429D49A75FB6 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		AD959072BAC66178F68E6B1395EA79BA /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		B12748536F376618CCAF71E504E807BE /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		B599C458FBC8A0FFD7551C63CB1813A4 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
+		B739CEC652920503E001E804BB830EB8 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
+		B8229D14755B8B261C1519B420627B99 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		BCD81019D41F6E36F119182B5691C8F9 /* libToast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libToast.a; path = libToast.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD45234526507F84BF7609DE559F7FBA /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASValueTrackingSlider.h; path = ASValueTrackingSlider/ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		BD654758CADEE2B647676C227A397985 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		C10064AD09D67390E727EAD5CC532E4D /* Pods-AutoDoorPro-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutoDoorPro-acknowledgements.plist"; sourceTree = "<group>"; };
-		C3684545B365A814F50FA28ADAD854A7 /* BabyBluetooth-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BabyBluetooth-dummy.m"; sourceTree = "<group>"; };
+		C16663A49649A4AFE2D20E22331A2516 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASValueTrackingSlider.h; path = ASValueTrackingSlider/ASValueTrackingSlider.h; sourceTree = "<group>"; };
 		C57A9626DF8C54B7F486E669307C1798 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6598C62013037221997D782A0C3037F /* Pods-AutoDoorPro-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutoDoorPro-frameworks.sh"; sourceTree = "<group>"; };
-		C79C619D8AF93D4BFD52FA72CA367BC5 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
-		C935175BADCD79F7DB57DD761A27DDAA /* BabyDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyDefine.h; path = Classes/objc/BabyDefine.h; sourceTree = "<group>"; };
-		CD9FE72D5D211C5D50FF3C9A95DCA64F /* BabyBluetooth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BabyBluetooth.xcconfig; sourceTree = "<group>"; };
-		D2172825002AE36B34EBF47ABE4576BD /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
-		D288AE6180D61423A0679EF3249069CC /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
-		D5318ADCC0F89C4113CE2E62A1C18C0E /* BabyPeripheralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyPeripheralManager.h; path = Classes/objc/BabyPeripheralManager.h; sourceTree = "<group>"; };
+		C66B9FD5FF4ADCA37B0986F4C4AE353F /* BabyBluetooth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BabyBluetooth-prefix.pch"; sourceTree = "<group>"; };
+		C900239604F8A778A29EFE524777CED8 /* BabyBluetooth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyBluetooth.h; path = Classes/objc/BabyBluetooth.h; sourceTree = "<group>"; };
+		C94C46E578348A8CC182CF5192C56547 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		CA5507CF09CF56B5A8524754ED4C441A /* BabyDefine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyDefine.m; path = Classes/objc/BabyDefine.m; sourceTree = "<group>"; };
+		CBE0249F4ADECB731EC173736ECF4AEA /* BabyPeripheralManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyPeripheralManager.m; path = Classes/objc/BabyPeripheralManager.m; sourceTree = "<group>"; };
+		CC9F202A1E6BBC14F765F678D99A5677 /* Toast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-prefix.pch"; sourceTree = "<group>"; };
+		D19AD8536C116BD511E68956D2D5CF8F /* BabyOptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyOptions.m; path = Classes/objc/BabyOptions.m; sourceTree = "<group>"; };
+		D26C1F03CA71A025F26B09105D7ACB8F /* UIView+Toast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Toast/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
+		D4C769670CC68772FD96A70CFDDCE9AD /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		D4D32FE99DD4E5881B5241975F3AB9D1 /* ASValueTrackingSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASValueTrackingSlider-dummy.m"; sourceTree = "<group>"; };
+		D577ECD944D0BDC7D8DD8BE7F89CA3CF /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASValueTrackingSlider.m; path = ASValueTrackingSlider/ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		D5891BE85CF68691433A373D8178554C /* ASValueTrackingSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASValueTrackingSlider.xcconfig; sourceTree = "<group>"; };
+		D5DAE048B827EA0502096EB9EC59DEB3 /* ASValueTrackingSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASValueTrackingSlider-prefix.pch"; sourceTree = "<group>"; };
 		D781251CD76786EE118D5301A6D2233C /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSVProgressHUD.a; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8AB34FCFF7E36BDA395E1A0AC33C859 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
-		DC8E56C9969C803A5D238CCA62091096 /* Toast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-prefix.pch"; sourceTree = "<group>"; };
+		DCB5C9AB31C39E4A98D1A9B837C9541B /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		E0203FCF2E38F9E0B8C4E69853543A3E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		E11B5426CD37000C4D4AC0B31B8364C2 /* ASValueTrackingSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASValueTrackingSlider-prefix.pch"; sourceTree = "<group>"; };
-		E4666CBA6A216AD6DBA9A9F69ABB5BE5 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
-		E580CA668C49CF2D518D41279F167DF1 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
-		E70AB9CAE7CAE355F95CE99A63A633E5 /* ASValuePopUpView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASValuePopUpView.m; path = ASValueTrackingSlider/ASValuePopUpView.m; sourceTree = "<group>"; };
-		E8C49ACF8F0DE09B3133849D6F266B2F /* BabyToy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyToy.m; path = Classes/objc/BabyToy.m; sourceTree = "<group>"; };
-		E9710D3418CB88D563EF2012537D6F43 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
-		EB919C8BC0BEC69BB7339E08419DF4F2 /* ASValueTrackingSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASValueTrackingSlider.xcconfig; sourceTree = "<group>"; };
+		E29A1944E31BBF21BC232965E7918118 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		E50D9552F1587261A68A7A2124334166 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
+		E7020A623553C06CE27C1D60AFE9926D /* BabySpeaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabySpeaker.h; path = Classes/objc/BabySpeaker.h; sourceTree = "<group>"; };
 		EC32878090C4B2B93381956161EC0930 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		EC6F0A3F77D9F28D47D78158AC37351B /* Pods-AutoDoorPro-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AutoDoorPro-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F91AD0A929602FFD8FE676CA1972B013 /* BabyCentralManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyCentralManager.m; path = Classes/objc/BabyCentralManager.m; sourceTree = "<group>"; };
+		EEB5658167E2D405BA8FA98BFB4808C6 /* Toast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-dummy.m"; sourceTree = "<group>"; };
+		F2E1B8DAC009AB7062386204FAADC762 /* BabyToy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyToy.m; path = Classes/objc/BabyToy.m; sourceTree = "<group>"; };
+		F36D8681AF072B7EE50A86EDD04918A0 /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
 		FB08020C03413429A28BB3BC9938346A /* Pods-AutoDoorPro-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AutoDoorPro-dummy.m"; sourceTree = "<group>"; };
 		FD1B9EABF8A19E17214E58D4F228531A /* Pods-AutoDoorPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutoDoorPro.release.xcconfig"; sourceTree = "<group>"; };
+		FE0080E91EDA2CCBAB97BF51D0288551 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,52 +268,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C9135E1263ECCA85A09B5834FA923DD /* ASValueTrackingSlider */ = {
+		031C0E9A3A778549320C032141BF5622 /* Toast */ = {
 			isa = PBXGroup;
 			children = (
-				838BC4B115707173B562C9E28FA57510 /* ASValuePopUpView.h */,
-				E70AB9CAE7CAE355F95CE99A63A633E5 /* ASValuePopUpView.m */,
-				BD45234526507F84BF7609DE559F7FBA /* ASValueTrackingSlider.h */,
-				B309C8E48DE00648A7AE9E587A5A2727 /* ASValueTrackingSlider.m */,
-				77576C2AA34788393FB6C53455AC3416 /* Support Files */,
+				9C86429DA152420E8237AE3B79FDBB28 /* UIView+Toast.h */,
+				D26C1F03CA71A025F26B09105D7ACB8F /* UIView+Toast.m */,
+				77F09146C059855D07D0B4B454EBFF72 /* Support Files */,
 			);
-			name = ASValueTrackingSlider;
-			path = ASValueTrackingSlider;
+			name = Toast;
+			path = Toast;
 			sourceTree = "<group>";
 		};
-		0D6FB2445A723DF5598E7C328A22E6B8 /* Support Files */ = {
+		120A80A25B386FB51A77C0D99115BE00 /* BabyBluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				B5F7AEBD23B42D3A3A7A6AF266B34EE6 /* Toast.xcconfig */,
-				3AF16F5C7BC2B1ED2210D7FBEB5EE86A /* Toast-dummy.m */,
-				DC8E56C9969C803A5D238CCA62091096 /* Toast-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Toast";
-			sourceTree = "<group>";
-		};
-		0ED5B07EF9CA751428EA588764F7FDA6 /* BabyBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				76B288AF584D49F86C6FABAA21D4FEC0 /* BabyBluetooth.h */,
-				5A83E7DA3AAFE4941D0C1ECF10D19C4B /* BabyBluetooth.m */,
-				AAF2EB120B1D71C6866843A71D863061 /* BabyCallback.h */,
-				0A56045E78B30D68E7BAF358E6CB79B6 /* BabyCallback.m */,
-				8C522580DD7E078C49B7186E1C3BACCF /* BabyCentralManager.h */,
-				F91AD0A929602FFD8FE676CA1972B013 /* BabyCentralManager.m */,
-				C935175BADCD79F7DB57DD761A27DDAA /* BabyDefine.h */,
-				AED23174019F40C62394E9BABE12F3F6 /* BabyDefine.m */,
-				769BE81CBE7045474B09E9CA8A030BA9 /* BabyOptions.h */,
-				336B1D0691640012F75B5C58FA13C3A6 /* BabyOptions.m */,
-				D5318ADCC0F89C4113CE2E62A1C18C0E /* BabyPeripheralManager.h */,
-				6E7B797A815DD706569B0308C4F843DA /* BabyPeripheralManager.m */,
-				A4E41981F099A9D67D30B00BFAB39D04 /* BabyRhythm.h */,
-				70130F5CBEF289BB6EA703DB23E2D08F /* BabyRhythm.m */,
-				6E5C456B8AD79F6490A9641DA58B5B23 /* BabySpeaker.h */,
-				085570079F9D41DCADAA6A0B3517AAE3 /* BabySpeaker.m */,
-				B23AC689D9288A44A01B129D3A2E2C8F /* BabyToy.h */,
-				E8C49ACF8F0DE09B3133849D6F266B2F /* BabyToy.m */,
-				40F9B080EF5E6B7C07A42E2CD40D9652 /* Support Files */,
+				C900239604F8A778A29EFE524777CED8 /* BabyBluetooth.h */,
+				51B3022BF3D583A283B8E8E76293DA13 /* BabyBluetooth.m */,
+				67A914CF3B1834616ADA45B8EA7EAF59 /* BabyCallback.h */,
+				652EB455DBF3A15EFB2350E17AE91CCD /* BabyCallback.m */,
+				81F771CABE9BECAB6AF1C3B94CCFC1DD /* BabyCentralManager.h */,
+				07FD35491EE1BD392AEB53B7F7DA8296 /* BabyCentralManager.m */,
+				513D6E04C2996C75E36BA37BBBF6A57C /* BabyDefine.h */,
+				CA5507CF09CF56B5A8524754ED4C441A /* BabyDefine.m */,
+				6EEC6E0EEA7EEF416F88A25A382BA813 /* BabyOptions.h */,
+				D19AD8536C116BD511E68956D2D5CF8F /* BabyOptions.m */,
+				637E493D033011720ED9A9564983AC43 /* BabyPeripheralManager.h */,
+				CBE0249F4ADECB731EC173736ECF4AEA /* BabyPeripheralManager.m */,
+				922AB45453AD38C5F3F089B517B4A707 /* BabyRhythm.h */,
+				097A4A914E710DBC4F4C7334179B0B70 /* BabyRhythm.m */,
+				E7020A623553C06CE27C1D60AFE9926D /* BabySpeaker.h */,
+				3BBE162368A4E040FB9AC9BCDF5EA22A /* BabySpeaker.m */,
+				968471A052983FC1E71CA285634281D1 /* BabyToy.h */,
+				F2E1B8DAC009AB7062386204FAADC762 /* BabyToy.m */,
+				98D05AB738D05304E910D2BD6474CDFD /* Support Files */,
 			);
 			name = BabyBluetooth;
 			path = BabyBluetooth;
@@ -326,109 +314,77 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2333ECF0378BA5D361F21A632453E3CD /* Support Files */ = {
+		2CC9C77B36C700067F164A3FEDCED354 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7530434BFD6EEE311D8177D6A6BCCD07 /* Masonry.xcconfig */,
-				44285AD0B6466E74D32CA3FFF43CEEE2 /* Masonry-dummy.m */,
-				E4666CBA6A216AD6DBA9A9F69ABB5BE5 /* Masonry-prefix.pch */,
+				76AFFF670099C253161370B137E28AAC /* UMMobClick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		369A3984413F22583157B4C027BE452E /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				5A3C084C6B4E6E15D8C610826C1D36E2 /* MASCompositeConstraint.h */,
+				4B9AF61D3EFB1FDB0838295649E1597C /* MASCompositeConstraint.m */,
+				DCB5C9AB31C39E4A98D1A9B837C9541B /* MASConstraint.h */,
+				E50D9552F1587261A68A7A2124334166 /* MASConstraint.m */,
+				B599C458FBC8A0FFD7551C63CB1813A4 /* MASConstraint+Private.h */,
+				2CF54F45D5B9E5A3646EBB59ADC0C57A /* MASConstraintMaker.h */,
+				50EBD0D4D53C4849F4646463BA1533BF /* MASConstraintMaker.m */,
+				D4C769670CC68772FD96A70CFDDCE9AD /* MASLayoutConstraint.h */,
+				3F33DF521EABE1912BC8CCD8027A3D75 /* MASLayoutConstraint.m */,
+				73AF8424FDE299FA7BA88B123D751C3C /* Masonry.h */,
+				66275375D036B06ABD2F9A1B5DD02D53 /* MASUtilities.h */,
+				B739CEC652920503E001E804BB830EB8 /* MASViewAttribute.h */,
+				BD654758CADEE2B647676C227A397985 /* MASViewAttribute.m */,
+				FE0080E91EDA2CCBAB97BF51D0288551 /* MASViewConstraint.h */,
+				36286B4CCC06EE3671D6DC7FFE34F8BB /* MASViewConstraint.m */,
+				4B777DE2C5179592BDB6E6562E9DFD76 /* NSArray+MASAdditions.h */,
+				C94C46E578348A8CC182CF5192C56547 /* NSArray+MASAdditions.m */,
+				04A6A230201ECCB52097697C8B3A8650 /* NSArray+MASShorthandAdditions.h */,
+				B12748536F376618CCAF71E504E807BE /* NSLayoutConstraint+MASDebugAdditions.h */,
+				AD959072BAC66178F68E6B1395EA79BA /* NSLayoutConstraint+MASDebugAdditions.m */,
+				69B3BC5EFC07561A546A1AA9CE90E3FB /* View+MASAdditions.h */,
+				9D72A7B459FF164279D7C9C5EC3AE5A6 /* View+MASAdditions.m */,
+				E29A1944E31BBF21BC232965E7918118 /* View+MASShorthandAdditions.h */,
+				2A8226E4B91B880F84A5D22E2CF6C86C /* ViewController+MASAdditions.h */,
+				B8229D14755B8B261C1519B420627B99 /* ViewController+MASAdditions.m */,
+				3F8F17FFD51D796FA614F18555831AFF /* Support Files */,
+			);
+			name = Masonry;
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		3F8F17FFD51D796FA614F18555831AFF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0712AAABF6DF810CA354EC6ADCE19AAA /* Masonry.xcconfig */,
+				35464BA91C5DD7B072A7AAB5E0F1AE55 /* Masonry-dummy.m */,
+				2ECAA9C4A99FA81C022A59CD60E31711 /* Masonry-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Masonry";
 			sourceTree = "<group>";
 		};
-		3D41C06362F044C9D7B7396566E8330A /* Pods */ = {
+		43711918CACA3997A8176FF79C0B71CF /* UMengAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				0C9135E1263ECCA85A09B5834FA923DD /* ASValueTrackingSlider */,
-				0ED5B07EF9CA751428EA588764F7FDA6 /* BabyBluetooth */,
-				796FEBE61CB446B56A32CF6FBEF58A8F /* Masonry */,
-				6ADF02F40767D7AB064243B5F63FF956 /* SVProgressHUD */,
-				B4CC0103B92B947ADD9353F1E6EAA419 /* Toast */,
+				2CC9C77B36C700067F164A3FEDCED354 /* Frameworks */,
 			);
-			name = Pods;
+			name = UMengAnalytics;
+			path = UMengAnalytics;
 			sourceTree = "<group>";
 		};
-		40F9B080EF5E6B7C07A42E2CD40D9652 /* Support Files */ = {
+		77F09146C059855D07D0B4B454EBFF72 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CD9FE72D5D211C5D50FF3C9A95DCA64F /* BabyBluetooth.xcconfig */,
-				C3684545B365A814F50FA28ADAD854A7 /* BabyBluetooth-dummy.m */,
-				3BE3C58198E1FDD6DD62C05AD7810DD8 /* BabyBluetooth-prefix.pch */,
+				51238087A93927E99EFECE3A596D2B30 /* Toast.xcconfig */,
+				EEB5658167E2D405BA8FA98BFB4808C6 /* Toast-dummy.m */,
+				CC9F202A1E6BBC14F765F678D99A5677 /* Toast-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/BabyBluetooth";
-			sourceTree = "<group>";
-		};
-		43B6FA5600F19728755BB7426E317E22 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7DE2647BD7173D22B42469250B0B6DE9 /* SVProgressHUD.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		6ADF02F40767D7AB064243B5F63FF956 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				764CF75609B416F894042A6001C04FE3 /* SVIndefiniteAnimatedView.h */,
-				58AB6C58C0C2AB76E50884F074EDA2C1 /* SVIndefiniteAnimatedView.m */,
-				95A576588F13D2F1DB3DD7DAE951E3DF /* SVProgressAnimatedView.h */,
-				D288AE6180D61423A0679EF3249069CC /* SVProgressAnimatedView.m */,
-				167B3241A980B41EADACD7867871F3B6 /* SVProgressHUD.h */,
-				76136BDC0A6CB5DFA1210D40C273DBC7 /* SVProgressHUD.m */,
-				E580CA668C49CF2D518D41279F167DF1 /* SVRadialGradientLayer.h */,
-				C79C619D8AF93D4BFD52FA72CA367BC5 /* SVRadialGradientLayer.m */,
-				43B6FA5600F19728755BB7426E317E22 /* Resources */,
-				E267F3550B49EE2E62C9B1687E56E709 /* Support Files */,
-			);
-			name = SVProgressHUD;
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		77576C2AA34788393FB6C53455AC3416 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				EB919C8BC0BEC69BB7339E08419DF4F2 /* ASValueTrackingSlider.xcconfig */,
-				9123AEA44713746B3DB8907F2EFB1898 /* ASValueTrackingSlider-dummy.m */,
-				E11B5426CD37000C4D4AC0B31B8364C2 /* ASValueTrackingSlider-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/ASValueTrackingSlider";
-			sourceTree = "<group>";
-		};
-		796FEBE61CB446B56A32CF6FBEF58A8F /* Masonry */ = {
-			isa = PBXGroup;
-			children = (
-				2966CBAF6057543BEC8F60335320749E /* MASCompositeConstraint.h */,
-				6DE4CC85B84EAA6B7E4806AC83127FD5 /* MASCompositeConstraint.m */,
-				A4AD6986C356F0021838DF6B689271D3 /* MASConstraint.h */,
-				2B382C152B561FBDE39E3337F447D243 /* MASConstraint.m */,
-				D8AB34FCFF7E36BDA395E1A0AC33C859 /* MASConstraint+Private.h */,
-				726F1503E8D82E46E0F88D308CC98A75 /* MASConstraintMaker.h */,
-				54BAFDD2E624D8DFE06E7EE45C0D44FD /* MASConstraintMaker.m */,
-				7A70468FA1A3DC41773DC89C25A1C286 /* MASLayoutConstraint.h */,
-				4A716622D4D6E8EB5B19527DF8D88B99 /* MASLayoutConstraint.m */,
-				7B81E42836595AAC846784DA3437F297 /* Masonry.h */,
-				86F1397C4B52A9FA19AEFABF5F888959 /* MASUtilities.h */,
-				38810627BD6F4A5AAF9C6AC98D4478CC /* MASViewAttribute.h */,
-				5A17CE1651F19EF837BAC37DD907B2F3 /* MASViewAttribute.m */,
-				0003465EB10219F59EE9895F76AA61E8 /* MASViewConstraint.h */,
-				65AA6EB3B2AB981DD53D84618B468377 /* MASViewConstraint.m */,
-				314E228AB2F34990FBCE695C10F742FC /* NSArray+MASAdditions.h */,
-				8363F8E2BCCF730223AE3C8B91B9F8C3 /* NSArray+MASAdditions.m */,
-				1E9F4A53D7767674239AA23873F61D02 /* NSArray+MASShorthandAdditions.h */,
-				933993B1F91FB2C716906C2FB5861C09 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				5A19DEA48D105F8422F6AC722FBE9BBC /* NSLayoutConstraint+MASDebugAdditions.m */,
-				E9710D3418CB88D563EF2012537D6F43 /* View+MASAdditions.h */,
-				69776DE6DB54EB0C4068AE8A56181939 /* View+MASAdditions.m */,
-				373AD8B7E5F073535B1EF2F8897CA134 /* View+MASShorthandAdditions.h */,
-				502DEBFB05442D44DDFBA7C27EE6EDA2 /* ViewController+MASAdditions.h */,
-				7C663AC6A480A405E1A8E5AF07C2680E /* ViewController+MASAdditions.m */,
-				2333ECF0378BA5D361F21A632453E3CD /* Support Files */,
-			);
-			name = Masonry;
-			path = Masonry;
+			path = "../Target Support Files/Toast";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -436,21 +392,32 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				3D41C06362F044C9D7B7396566E8330A /* Pods */,
+				E3F47577E3672938DD3739934B4282F7 /* Pods */,
 				BD6156B79BA70DD87226429DD625C9A2 /* Products */,
 				BC642BA0F991057BC3876A6B593E2150 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		B4CC0103B92B947ADD9353F1E6EAA419 /* Toast */ = {
+		98D05AB738D05304E910D2BD6474CDFD /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3EFCDF6515AA97E56AA95914CA36D755 /* UIView+Toast.h */,
-				3E978135E4741E70986F248DFBC35C27 /* UIView+Toast.m */,
-				0D6FB2445A723DF5598E7C328A22E6B8 /* Support Files */,
+				25ADD9438651F52FCCFB229AC8F9E013 /* BabyBluetooth.xcconfig */,
+				7859057EDF3949D8E1B9616D56E0D0CD /* BabyBluetooth-dummy.m */,
+				C66B9FD5FF4ADCA37B0986F4C4AE353F /* BabyBluetooth-prefix.pch */,
 			);
-			name = Toast;
-			path = Toast;
+			name = "Support Files";
+			path = "../Target Support Files/BabyBluetooth";
+			sourceTree = "<group>";
+		};
+		9E0B323CC4D77F823EC9BF2683009E0F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F36D8681AF072B7EE50A86EDD04918A0 /* SVProgressHUD.xcconfig */,
+				040F2BC885E9104964F9F549AD5D76C1 /* SVProgressHUD-dummy.m */,
+				7DAC08D5D239C4A55A4458D1719EB855 /* SVProgressHUD-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SVProgressHUD";
 			sourceTree = "<group>";
 		};
 		BC642BA0F991057BC3876A6B593E2150 /* Targets Support Files */ = {
@@ -474,15 +441,36 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E267F3550B49EE2E62C9B1687E56E709 /* Support Files */ = {
+		DD2CF59A7EA96EC7946F5B31C7D940C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				157D84CCE3B13B7E942528E8751611F6 /* SVProgressHUD.xcconfig */,
-				D2172825002AE36B34EBF47ABE4576BD /* SVProgressHUD-dummy.m */,
-				AA6FB0C264897CB502C0C4D6BB61BBFB /* SVProgressHUD-prefix.pch */,
+				7E2087A9D86AA0EDDBDE6C1F7CBB5B9A /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E3F47577E3672938DD3739934B4282F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F19AE5827133DCCEFA2B5DB7D7C5B567 /* ASValueTrackingSlider */,
+				120A80A25B386FB51A77C0D99115BE00 /* BabyBluetooth */,
+				369A3984413F22583157B4C027BE452E /* Masonry */,
+				ED3024D54A7CCF4685EB9A42334432DC /* SVProgressHUD */,
+				031C0E9A3A778549320C032141BF5622 /* Toast */,
+				43711918CACA3997A8176FF79C0B71CF /* UMengAnalytics */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5433ABFF0973F27CD661556CD43809E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5891BE85CF68691433A373D8178554C /* ASValueTrackingSlider.xcconfig */,
+				D4D32FE99DD4E5881B5241975F3AB9D1 /* ASValueTrackingSlider-dummy.m */,
+				D5DAE048B827EA0502096EB9EC59DEB3 /* ASValueTrackingSlider-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SVProgressHUD";
+			path = "../Target Support Files/ASValueTrackingSlider";
 			sourceTree = "<group>";
 		};
 		E5E9260013FA223D81B907D9285F6EA1 /* iOS */ = {
@@ -493,6 +481,37 @@
 				5BF675A168132FD52AED630F977FE906 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		ED3024D54A7CCF4685EB9A42334432DC /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				1F06CA1A2CC43B102107E42074F49FBF /* SVIndefiniteAnimatedView.h */,
+				41A4004DA806B5213164467994FBB28E /* SVIndefiniteAnimatedView.m */,
+				A879C86878A3A6933D03A98DB58C2D3B /* SVProgressAnimatedView.h */,
+				2FF2BECF948EBF854FA9D0CE5FC0544F /* SVProgressAnimatedView.m */,
+				177348DC27C19A5FADE6CE617BB1CA6D /* SVProgressHUD.h */,
+				A94DFC196240B4BC9D1C429D49A75FB6 /* SVProgressHUD.m */,
+				8564E75471E9A445F4F4275CAD640E1F /* SVRadialGradientLayer.h */,
+				01C54D0F7A898C17FFAA5FBA850FB741 /* SVRadialGradientLayer.m */,
+				DD2CF59A7EA96EC7946F5B31C7D940C1 /* Resources */,
+				9E0B323CC4D77F823EC9BF2683009E0F /* Support Files */,
+			);
+			name = SVProgressHUD;
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		F19AE5827133DCCEFA2B5DB7D7C5B567 /* ASValueTrackingSlider */ = {
+			isa = PBXGroup;
+			children = (
+				87D739EB3E7E1596CAD7D923455D495F /* ASValuePopUpView.h */,
+				594078B08A090D831D638338D16F3F8F /* ASValuePopUpView.m */,
+				C16663A49649A4AFE2D20E22331A2516 /* ASValueTrackingSlider.h */,
+				D577ECD944D0BDC7D8DD8BE7F89CA3CF /* ASValueTrackingSlider.m */,
+				E5433ABFF0973F27CD661556CD43809E /* Support Files */,
+			);
+			name = ASValueTrackingSlider;
+			path = ASValueTrackingSlider;
 			sourceTree = "<group>";
 		};
 		F2A908C142B1C7903B09E91AE8B21C7E /* Pods-AutoDoorPro */ = {
@@ -899,7 +918,7 @@
 		};
 		42BD96A3FDBB992ADCCFFA8F838F53DD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD9FE72D5D211C5D50FF3C9A95DCA64F /* BabyBluetooth.xcconfig */;
+			baseConfigurationReference = 25ADD9438651F52FCCFB229AC8F9E013 /* BabyBluetooth.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -962,7 +981,7 @@
 		};
 		5A6ACE61C4D128598EA7472C87982601 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7530434BFD6EEE311D8177D6A6BCCD07 /* Masonry.xcconfig */;
+			baseConfigurationReference = 0712AAABF6DF810CA354EC6ADCE19AAA /* Masonry.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1008,7 +1027,7 @@
 		};
 		6CA42F62CE0652819ED46936FE31E065 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7530434BFD6EEE311D8177D6A6BCCD07 /* Masonry.xcconfig */;
+			baseConfigurationReference = 0712AAABF6DF810CA354EC6ADCE19AAA /* Masonry.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1031,7 +1050,7 @@
 		};
 		7C39B4BE7CD7B5C94356DC7129E698A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 157D84CCE3B13B7E942528E8751611F6 /* SVProgressHUD.xcconfig */;
+			baseConfigurationReference = F36D8681AF072B7EE50A86EDD04918A0 /* SVProgressHUD.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1054,7 +1073,7 @@
 		};
 		A712B9AD00C6B17B41303CCDF3F657BC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB919C8BC0BEC69BB7339E08419DF4F2 /* ASValueTrackingSlider.xcconfig */;
+			baseConfigurationReference = D5891BE85CF68691433A373D8178554C /* ASValueTrackingSlider.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1077,7 +1096,7 @@
 		};
 		B4B85F9D4DFD17396B234005EB74B9AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 157D84CCE3B13B7E942528E8751611F6 /* SVProgressHUD.xcconfig */;
+			baseConfigurationReference = F36D8681AF072B7EE50A86EDD04918A0 /* SVProgressHUD.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1100,7 +1119,7 @@
 		};
 		B88153D750C7065FF968DFD3D4AD6BA9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD9FE72D5D211C5D50FF3C9A95DCA64F /* BabyBluetooth.xcconfig */;
+			baseConfigurationReference = 25ADD9438651F52FCCFB229AC8F9E013 /* BabyBluetooth.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1123,7 +1142,7 @@
 		};
 		DE0D574A23D8AE7538E5A878B703E31C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5F7AEBD23B42D3A3A7A6AF266B34EE6 /* Toast.xcconfig */;
+			baseConfigurationReference = 51238087A93927E99EFECE3A596D2B30 /* Toast.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1146,7 +1165,7 @@
 		};
 		E487C71EBDB697CAEA7B0A710239F136 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5F7AEBD23B42D3A3A7A6AF266B34EE6 /* Toast.xcconfig */;
+			baseConfigurationReference = 51238087A93927E99EFECE3A596D2B30 /* Toast.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1169,7 +1188,7 @@
 		};
 		EA5A6F04C1D1DDA500416286F6BA53CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB919C8BC0BEC69BB7339E08419DF4F2 /* ASValueTrackingSlider.xcconfig */;
+			baseConfigurationReference = D5891BE85CF68691433A373D8178554C /* ASValueTrackingSlider.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

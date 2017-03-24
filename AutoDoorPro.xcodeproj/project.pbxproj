@@ -19,9 +19,13 @@
 		7D742EC91E65135D00EABF88 /* ControllDoorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D742EC81E65135D00EABF88 /* ControllDoorController.m */; };
 		7D742ECD1E6555F700EABF88 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D742ECC1E6555F700EABF88 /* SettingsController.m */; };
 		7D742ED01E6556F800EABF88 /* XHNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D742ECF1E6556F800EABF88 /* XHNavView.m */; };
+		7D7DD92B1E8135150005EED8 /* UMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7DD92A1E8135150005EED8 /* UMConfig.m */; };
 		7D7F50D21E665E6400446A4A /* SEFilterControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F50CF1E665E6400446A4A /* SEFilterControl.m */; };
 		7D7F50D31E665E6400446A4A /* SEFilterKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F50D11E665E6400446A4A /* SEFilterKnob.m */; };
 		7D7F50D71E669B4200446A4A /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F50D61E669B4200446A4A /* UIButton+Block.m */; };
+		7D84244D1E7BBF8F0049C8D6 /* BLECode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D84244C1E7BBF8F0049C8D6 /* BLECode.m */; };
+		7D8581D01E7F6C3B0046DAE5 /* BLESliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8581CF1E7F6C3B0046DAE5 /* BLESliderView.m */; };
+		7DC8F2A91E7A2A4E006E46F7 /* PeripheralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC8F2A81E7A2A4E006E46F7 /* PeripheralInfo.m */; };
 		B1A084B01B257BE883220318 /* libPods-AutoDoorPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBFE3BBB5A5B07B6CB9F03A /* libPods-AutoDoorPro.a */; };
 /* End PBXBuildFile section */
 
@@ -68,12 +72,21 @@
 		7D742ECC1E6555F700EABF88 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		7D742ECE1E6556F800EABF88 /* XHNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHNavView.h; path = ../XHNavView.h; sourceTree = "<group>"; };
 		7D742ECF1E6556F800EABF88 /* XHNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHNavView.m; path = ../XHNavView.m; sourceTree = "<group>"; };
+		7D7DD9291E8135150005EED8 /* UMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMConfig.h; sourceTree = "<group>"; };
+		7D7DD92A1E8135150005EED8 /* UMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMConfig.m; sourceTree = "<group>"; };
 		7D7F50CE1E665E6400446A4A /* SEFilterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEFilterControl.h; sourceTree = "<group>"; };
 		7D7F50CF1E665E6400446A4A /* SEFilterControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEFilterControl.m; sourceTree = "<group>"; };
 		7D7F50D01E665E6400446A4A /* SEFilterKnob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEFilterKnob.h; sourceTree = "<group>"; };
 		7D7F50D11E665E6400446A4A /* SEFilterKnob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEFilterKnob.m; sourceTree = "<group>"; };
 		7D7F50D51E669B4200446A4A /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
 		7D7F50D61E669B4200446A4A /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
+		7D8424481E7B8A000049C8D6 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		7D84244B1E7BBF8F0049C8D6 /* BLECode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLECode.h; sourceTree = "<group>"; };
+		7D84244C1E7BBF8F0049C8D6 /* BLECode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLECode.m; sourceTree = "<group>"; };
+		7D8581CE1E7F6C3B0046DAE5 /* BLESliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLESliderView.h; sourceTree = "<group>"; };
+		7D8581CF1E7F6C3B0046DAE5 /* BLESliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLESliderView.m; sourceTree = "<group>"; };
+		7DC8F2A71E7A2A4E006E46F7 /* PeripheralInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralInfo.h; sourceTree = "<group>"; };
+		7DC8F2A81E7A2A4E006E46F7 /* PeripheralInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralInfo.m; sourceTree = "<group>"; };
 		C3136FBD5939C536188BD217 /* Pods-AutoDoorPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoDoorPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro.debug.xcconfig"; sourceTree = "<group>"; };
 		FBA2402617430B8ECD6447FC /* Pods-AutoDoorPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoDoorPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +218,8 @@
 			children = (
 				7D742EC71E65135D00EABF88 /* ControllDoorController.h */,
 				7D742EC81E65135D00EABF88 /* ControllDoorController.m */,
+				7DC8F2A71E7A2A4E006E46F7 /* PeripheralInfo.h */,
+				7DC8F2A81E7A2A4E006E46F7 /* PeripheralInfo.m */,
 			);
 			path = ControlDoor;
 			sourceTree = "<group>";
@@ -218,6 +233,8 @@
 				7D7F50D11E665E6400446A4A /* SEFilterKnob.m */,
 				7D742ECB1E6555F700EABF88 /* SettingsController.h */,
 				7D742ECC1E6555F700EABF88 /* SettingsController.m */,
+				7D8581CE1E7F6C3B0046DAE5 /* BLESliderView.h */,
+				7D8581CF1E7F6C3B0046DAE5 /* BLESliderView.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -225,6 +242,8 @@
 		7D7F50D41E669B3A00446A4A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				7D7DD9291E8135150005EED8 /* UMConfig.h */,
+				7D7DD92A1E8135150005EED8 /* UMConfig.m */,
 				7D7F50D51E669B4200446A4A /* UIButton+Block.h */,
 				7D7F50D61E669B4200446A4A /* UIButton+Block.m */,
 			);
@@ -236,6 +255,9 @@
 			children = (
 				7D742ECE1E6556F800EABF88 /* XHNavView.h */,
 				7D742ECF1E6556F800EABF88 /* XHNavView.m */,
+				7D8424481E7B8A000049C8D6 /* Macro.h */,
+				7D84244B1E7BBF8F0049C8D6 /* BLECode.h */,
+				7D84244C1E7BBF8F0049C8D6 /* BLECode.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -310,18 +332,18 @@
 				TargetAttributes = {
 					7D742E8A1E65122200EABF88 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9ZXJ5FY6Q8;
+						DevelopmentTeam = Y7K95VGMAC;
 						ProvisioningStyle = Automatic;
 					};
 					7D742EA31E65122200EABF88 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9ZXJ5FY6Q8;
+						DevelopmentTeam = Y7K95VGMAC;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 7D742E8A1E65122200EABF88;
 					};
 					7D742EAE1E65122200EABF88 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9ZXJ5FY6Q8;
+						DevelopmentTeam = Y7K95VGMAC;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 7D742E8A1E65122200EABF88;
 					};
@@ -427,12 +449,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D84244D1E7BBF8F0049C8D6 /* BLECode.m in Sources */,
 				7D7F50D21E665E6400446A4A /* SEFilterControl.m in Sources */,
 				7D7F50D31E665E6400446A4A /* SEFilterKnob.m in Sources */,
+				7D8581D01E7F6C3B0046DAE5 /* BLESliderView.m in Sources */,
 				7D742EC91E65135D00EABF88 /* ControllDoorController.m in Sources */,
+				7DC8F2A91E7A2A4E006E46F7 /* PeripheralInfo.m in Sources */,
 				7D742E961E65122200EABF88 /* ViewController.m in Sources */,
 				7D742ECD1E6555F700EABF88 /* SettingsController.m in Sources */,
 				7D742E931E65122200EABF88 /* AppDelegate.m in Sources */,
+				7D7DD92B1E8135150005EED8 /* UMConfig.m in Sources */,
 				7D7F50D71E669B4200446A4A /* UIButton+Block.m in Sources */,
 				7D742ED01E6556F800EABF88 /* XHNavView.m in Sources */,
 				7D742E901E65122200EABF88 /* main.m in Sources */,
@@ -585,7 +611,7 @@
 			baseConfigurationReference = C3136FBD5939C536188BD217 /* Pods-AutoDoorPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9ZXJ5FY6Q8;
+				DEVELOPMENT_TEAM = Y7K95VGMAC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AutoDoorPro/AutodoorPrefixHeader.pch;
 				INFOPLIST_FILE = AutoDoorPro/Info.plist;
@@ -600,7 +626,7 @@
 			baseConfigurationReference = FBA2402617430B8ECD6447FC /* Pods-AutoDoorPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9ZXJ5FY6Q8;
+				DEVELOPMENT_TEAM = Y7K95VGMAC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AutoDoorPro/AutodoorPrefixHeader.pch;
 				INFOPLIST_FILE = AutoDoorPro/Info.plist;
@@ -614,7 +640,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 9ZXJ5FY6Q8;
+				DEVELOPMENT_TEAM = Y7K95VGMAC;
 				INFOPLIST_FILE = AutoDoorProTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xhliang.AutoDoorProTests;
@@ -627,7 +653,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 9ZXJ5FY6Q8;
+				DEVELOPMENT_TEAM = Y7K95VGMAC;
 				INFOPLIST_FILE = AutoDoorProTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xhliang.AutoDoorProTests;
@@ -639,7 +665,7 @@
 		7D742EBF1E65122200EABF88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 9ZXJ5FY6Q8;
+				DEVELOPMENT_TEAM = Y7K95VGMAC;
 				INFOPLIST_FILE = AutoDoorProUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xhliang.AutoDoorProUITests;
@@ -651,7 +677,7 @@
 		7D742EC01E65122200EABF88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 9ZXJ5FY6Q8;
+				DEVELOPMENT_TEAM = Y7K95VGMAC;
 				INFOPLIST_FILE = AutoDoorProUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xhliang.AutoDoorProUITests;

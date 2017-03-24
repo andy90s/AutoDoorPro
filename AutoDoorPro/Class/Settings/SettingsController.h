@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsController : UIViewController
+@interface SettingsController : UIViewController {
+@public
+    BabyBluetooth *baby;
+    NSMutableArray *sect;
+    __block  NSMutableArray *readValueArray;
+    __block  NSMutableArray *descriptors;
+}
+
+@property (nonatomic,strong)CBCharacteristic *characteristic;
+@property (nonatomic,strong)CBPeripheral *currPeripheral;
 
 @end

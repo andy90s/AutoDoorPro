@@ -17,6 +17,8 @@
 #import "BabyBluetooth.h"
 #import "SVProgressHUD.h"
 #import <Masonry/Masonry.h>
+#import "Macro.h"
+#import "BLECode.h"
 typedef void (^ActionBlock)(void);//无返回值,无入参的block,应用在大多数位置
 #define WEAK_SELF(bself) __weak typeof(self)bself = self
 #define APPH             [[UIScreen mainScreen] bounds].size.height

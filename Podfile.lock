@@ -4,6 +4,7 @@ PODS:
   - Masonry (1.0.2)
   - SVProgressHUD (2.1.2)
   - Toast (3.1.0)
+  - UMengAnalytics (4.1.8)
 
 DEPENDENCIES:
   - ASValueTrackingSlider
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Masonry
   - SVProgressHUD
   - Toast
+  - UMengAnalytics
 
 SPEC CHECKSUMS:
   ASValueTrackingSlider: 5261de3fcf00adb339efc93885e8f0bc99e703cd
@@ -18,7 +20,8 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
+  UMengAnalytics: 6ef66c49bea0779d2ce02a72d862510d97619a7a
 
-PODFILE CHECKSUM: 25455021d25b5443a0ac701b5b74044d7575e5af
+PODFILE CHECKSUM: 940a141d565344bbd44316fc93e9dd2f12489b60
 
 COCOAPODS: 1.1.1

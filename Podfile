@@ -7,5 +7,5 @@ pod 'SVProgressHUD'
 pod 'Toast'
 pod 'BabyBluetooth'
 pod 'ASValueTrackingSlider'
-
+pod 'UMengAnalytics'#标准SDK，含IDFA
 end

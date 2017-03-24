@@ -1,9 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.1.8"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ASValueTrackingSlider" "${PODS_ROOT}/Headers/Public/BabyBluetooth" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/Toast"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ASValueTrackingSlider" "$PODS_CONFIGURATION_BUILD_DIR/BabyBluetooth" "$PODS_CONFIGURATION_BUILD_DIR/Masonry" "$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/Toast"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ASValueTrackingSlider" -isystem "${PODS_ROOT}/Headers/Public/BabyBluetooth" -isystem "${PODS_ROOT}/Headers/Public/Masonry" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/Toast"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"ASValueTrackingSlider" -l"BabyBluetooth" -l"Masonry" -l"SVProgressHUD" -l"Toast" -framework "Foundation" -framework "QuartzCore" -framework "UIKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ASValueTrackingSlider" "${PODS_ROOT}/Headers/Public/BabyBluetooth" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/Toast" "${PODS_ROOT}/Headers/Public/UMengAnalytics"
+LIBRARY_SEARCH_PATHS = $(inherited) "$(PODS_ROOT)/UMengAnalytics/**" "$PODS_CONFIGURATION_BUILD_DIR/ASValueTrackingSlider" "$PODS_CONFIGURATION_BUILD_DIR/BabyBluetooth" "$PODS_CONFIGURATION_BUILD_DIR/Masonry" "$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/Toast"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ASValueTrackingSlider" -isystem "${PODS_ROOT}/Headers/Public/BabyBluetooth" -isystem "${PODS_ROOT}/Headers/Public/Masonry" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/Toast" -isystem "${PODS_ROOT}/Headers/Public/UMengAnalytics"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"ASValueTrackingSlider" -l"BabyBluetooth" -l"Masonry" -l"SVProgressHUD" -l"Toast" -l"sqlite3" -l"z" -framework "CoreTelephony" -framework "Foundation" -framework "QuartzCore" -framework "UIKit" -framework "UMMobClick"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods
