@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+UIKIT_EXTERN BOOL isPopSettingViewController;
 @interface SettingsController : UIViewController {
 @public
     BabyBluetooth *baby;

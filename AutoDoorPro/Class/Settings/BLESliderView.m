@@ -9,7 +9,7 @@
 #import "BLESliderView.h"
 #import "ASValueTrackingSlider.h"
 
-@interface BLESliderView()
+@interface BLESliderView()<ASValueTrackingSliderDataSource>
 
 @property(nonatomic,strong) ASValueTrackingSlider *bleSlider;
 @property (nonatomic,strong) UILabel *titleLab;
@@ -66,7 +66,9 @@
     }];
 }
 
-//  MARK: - <----------Accosse---------->
+
+
+//  MARK: - <----------Accessors---------->
 
 - (void)setBleMaxValue:(CGFloat)bleMaxValue {
     _bleMaxValue = bleMaxValue;
@@ -86,16 +88,27 @@
     self.titleLab.text = _sliderTitle;
 }
 
+- (void)setCurrentValue:(NSInteger)currentValue {
+    _currentValue = currentValue;
+    self.bleSlider.value = _currentValue;
+}
+
 //- (void)setTag:(NSInteger)tag {
 //    self.tag
 //}
 
 //  MARK: - <----------Private---------->
 - (void)sliderValueChanged:(ASValueTrackingSlider *)sender {
-    if ([self.delegate respondsToSelector:@selector(sliderValueChanged: tag:)]) {
-        [self.delegate sliderValueChanged:sender.value tag:self.tag];
+    if ([self.delegate respondsToSelector:@selector(sliderValueChanged: tag: value:)]) {
+        [self.delegate sliderValueChanged:sender.numberFormatter tag:self.tag value:sender.value];
     }
 }
+
+- (NSString *)slider:(ASValueTrackingSlider *)slider stringForValue:(float)value {
+    return [slider.numberFormatter stringFromNumber:@(value)];
+}
+
+
 
 //  MARK: - <----------Lazy---------->
 
@@ -107,6 +120,8 @@
         [_bleSlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         _bleSlider.popUpViewColor = [UIColor colorWithHue:0.55 saturation:0.8 brightness:0.9 alpha:0.7];
         _bleSlider.font = [UIFont fontWithName:@"Menlo-Bold" size:22];
+        _bleSlider.dataSource = self;
+        _bleSlider.minimumValue = 0.0;
         _bleSlider.textColor = [UIColor colorWithHue:0.55 saturation:1.0 brightness:0.5 alpha:1];
     }
     return _bleSlider;

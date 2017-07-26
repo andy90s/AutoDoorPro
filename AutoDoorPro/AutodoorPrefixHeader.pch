@@ -19,9 +19,18 @@
 #import <Masonry/Masonry.h>
 #import "Macro.h"
 #import "BLECode.h"
+#import "BLETool.h"
+
 typedef void (^ActionBlock)(void);//无返回值,无入参的block,应用在大多数位置
 #define WEAK_SELF(bself) __weak typeof(self)bself = self
 #define APPH             [[UIScreen mainScreen] bounds].size.height
 #define APPW             [[UIScreen mainScreen] bounds].size.width
 #define APPP             APPW/320
+
+#define weakify(var) __weak typeof(var) AHKWeak_##var = var;
+#define strongify(var) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+__strong typeof(var) var = AHKWeak_##var; \
+_Pragma("clang diagnostic pop")
 #endif /* AutodoorPrefixHeader_pch */

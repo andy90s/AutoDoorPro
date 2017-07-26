@@ -14,7 +14,7 @@
 
 @optional
 
-- (void)sliderValueChanged:(NSInteger)value tag:(NSInteger)tag;
+- (void)sliderValueChanged:(NSNumberFormatter*)value tag:(NSInteger)tag value:(CGFloat)cvalue ;
 
 @end
 
@@ -27,4 +27,6 @@
 @property (nonatomic,copy) NSArray *tips;
 /** 最大值*/
 @property (nonatomic,assign) CGFloat bleMaxValue;
+/** 设置当前值*/
+@property (nonatomic,assign) NSInteger currentValue;
 @end

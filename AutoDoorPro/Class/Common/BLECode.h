@@ -21,10 +21,25 @@ UIKIT_EXTERN NSString *const BLE_ORDER_CLEAR;
 UIKIT_EXTERN NSString *const BLE_ORDER_PAIR;
 /** 接收*/
 UIKIT_EXTERN NSString *const BLE_ORDER_RECIVE;
-
+/** 版本号*/
+UIKIT_EXTERN NSString *const BLE_ORDER_GETVERSION;
+/** 蜂鸣器*/
+UIKIT_EXTERN NSString *const BLE_ORDER_FENGMING;
+/** 状态*/
+UIKIT_EXTERN NSString *const BLE_ORDER_GETSTATUS;
+/** 重启*/
+UIKIT_EXTERN NSString *const BLE_ORDER_RESET;
+/** 恢复出厂设置*/
+UIKIT_EXTERN NSString *const BLE_ORDER_FACTORY_RESET;
 
 @interface BLECode : NSObject
 
+/**
+ 校验和
+
+ @param byteStr 十六进制字符串
+ @return 二进制data
+ */
 + (NSData *)getCheckSum:(NSString *)byteStr;
 
 /**
@@ -34,5 +49,13 @@ UIKIT_EXTERN NSString *const BLE_ORDER_RECIVE;
  @return 十六进制字符串
  */
 + (NSString *)ToHex:(int)tmpid;
+
+/**
+ 十六进制转Data
+
+ @param str 字符串
+ @return 二进制
+ */
++ (NSData *)hexToBytes:(NSString *)str;
 
 @end

@@ -16,6 +16,10 @@
 
 /** 假导航*/
 @property (nonatomic,strong) XHNavView *navBar;
+/** 硬件版本*/
+@property (nonatomic,strong) UILabel *hardwareVersion;
+/** 软件版本*/
+@property (nonatomic,strong) UILabel *softwareVersion;
 
 // 测试用 控件
 @property (nonatomic,strong) UIView *testView;
@@ -27,14 +31,25 @@
 @implementation ControllDoorController
 
 //  MARK: - <----------LifyCycle---------->
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (isPopSettingViewController) {
+        baby.channel(channelOnPeropheralView).characteristicDetails(self.currPeripheral,self.characteristic);
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self preparUserInterface];
     [self test];
     [self setMasonry];
     [self requestData];
-    
-    
 }
 
 - (void)test {
@@ -72,21 +87,29 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.navBar];
+    [self.view addSubview:self.hardwareVersion];
+    [self.view addSubview:self.softwareVersion];
     WEAK_SELF(weakSelf);
     self.navBar.leftBlock = ^() {
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
+    weakify(self);
     self.navBar.rightBlock = ^() {
-        
+        strongify(self);
         SettingsController *vc = [SettingsController new];
         vc->baby = baby;
         vc.currPeripheral = weakSelf.currPeripheral;
         vc.characteristic = weakSelf.characteristic;
+        if(weakSelf.characteristic.isNotifying) {
+        [self->baby cancelNotify:weakSelf.currPeripheral characteristic:weakSelf.characteristic];
+        }
+        isPopSettingViewController = NO;
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
 }
 
 - (void)notify {
+    WEAK_SELF(weakSelf);
     if(self.currPeripheral.state != CBPeripheralStateConnected) {
         [SVProgressHUD showErrorWithStatus:@"peripheral已经断开连接，请重新连接"];
         return;
@@ -94,17 +117,22 @@
     if (self.characteristic.properties & CBCharacteristicPropertyNotify ||  self.characteristic.properties & CBCharacteristicPropertyIndicate) {
         
         if(self.characteristic.isNotifying) {
-            [baby cancelNotify:self.currPeripheral characteristic:self.characteristic];
-            
+            [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
         }else{
             [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
-            
+            // 5502 0aaa bbcc ddee ffa3
             [baby notify:self.currPeripheral
           characteristic:self.characteristic
                    block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
                        NSLog(@"notify block");
                        NSLog(@"new value %@",characteristics.value);
-                       self.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value];
+                       weakSelf.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value.description];
+                       NSString *value = characteristics.value.description;
+                       NSLog(@"%@",value);
+                       if ([value hasPrefix:@"<5502"]) {
+                           weakSelf.hardwareVersion.text = [NSString stringWithFormat:@"硬件版本:%@",[BLETool hardwareInfo:value]];
+                           weakSelf.softwareVersion.text = [NSString stringWithFormat:@"软件版本:%@",[BLETool softwareInfo:value]];
+                       }
                    }];
         }
     }
@@ -115,24 +143,41 @@
 
 }
 
-- (void)open {
+// 获取版本号
+- (void)getVersion {
+    self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode hexToBytes:BLE_ORDER_GETVERSION]];
+    if (![self isSuccess]) {
+        [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
+        return;
+    }
+    [self.currPeripheral writeValue:[BLECode hexToBytes:BLE_ORDER_GETVERSION] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+- (void)fengCode {
+    self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_FENGMING]];
+    if (![self isSuccess]) {
+        [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
+        return;
+    }
+    [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_FENGMING] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+- (void)openCode {
     self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_OPEN]];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
     [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_OPEN] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
-//    [self notify];
 }
 
-- (void)close {
+- (void)closeCode {
     self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_CLOSE]];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
     [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_CLOSE]forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
-//    [self notify];
 }
 
 - (void)requestData {
@@ -167,7 +212,6 @@
     //设置设备连接成功的委托,同一个baby对象，使用不同的channel切换委托回调
     [baby setBlockOnConnectedAtChannel:channelOnPeropheralView block:^(CBCentralManager *central, CBPeripheral *peripheral) {
         [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"设备：%@--连接成功",peripheral.name]];
-        
     }];
     
     //设置设备连接失败的委托
@@ -202,17 +246,8 @@
     //设置读取characteristics的委托
     [baby setBlockOnReadValueForCharacteristicAtChannel:channelOnPeropheralView block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
         NSLog(@"characteristic name:%@ value is:%@",characteristics.UUID,characteristics.value);
-
+        
         NSData *data = characteristics.value;
-//        CBCharacteristicProperties p = characteristics.properties;
-//        if ((p & CBCharacteristicPropertyRead)&&(p & CBCharacteristicPropertyWrite)) {
-//            weakSelf.characteristic = characteristics;
-//        }
-//        NSLog(@"读取:%@特征value: %@",characteristics.UUID.UUIDString,data);
-//        if ([characteristics.UUID.UUIDString isEqualToString:@"FFE1"]) {
-//            
-//            // [weakSelf notify];
-//        }
     }];
     //设置写数据成功的block
     [baby setBlockOnDidWriteValueForCharacteristicAtChannel:channelOnPeropheralView block:^(CBCharacteristic *characteristic, NSError *error) {
@@ -224,6 +259,8 @@
         NSLog(@"===characteristic name:%@",characteristic.service.UUID);
         if (characteristic.descriptors.count > 0) {
             weakSelf.characteristic = characteristic;
+            [weakSelf notify];
+            [weakSelf getVersion];
         }
     }];
     //设置读取Descriptor的委托
@@ -287,6 +324,20 @@
     return _navBar;
 }
 
+- (UILabel *)hardwareVersion {
+    if (!_hardwareVersion) {
+        _hardwareVersion = [UILabel new];
+    }
+    return _hardwareVersion;
+}
+
+- (UILabel *)softwareVersion {
+    if (!_softwareVersion) {
+        _softwareVersion = [UILabel new];
+    }
+    return _softwareVersion;
+}
+
 //  MARK: - <----------Masonry---------->
 
 - (void)setMasonry {
@@ -298,14 +349,25 @@
         make.height.offset(APPH - 100);
         make.centerX.equalTo(self.view);
     }];
+    
+    // 版本号显示
+    [self.hardwareVersion mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).offset(100 * APPP);
+        make.centerX.equalTo(self.view);
+    }];
+    [self.softwareVersion mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.hardwareVersion.mas_bottom).offset(5 * APPP);
+        make.centerX.equalTo(self.view);
+    }];
+    
     // 开门
     CGFloat distance = 5;// 两个按键之间的距离/2
-    CGFloat topDistance = 100;// 两个按键距离顶部距离
+    CGFloat topDistance = 200;// 两个按键距离顶部距离
     UIButton *openButton = [UIButton new];
     openButton.backgroundColor = [UIColor colorWithRed:0.44 green:0.72 blue:0.22 alpha:1.00];
     [openButton setTitle:@"开门" forState:UIControlStateNormal];
     openButton.layer.cornerRadius = 5;
-    [openButton addTarget:self action:@selector(open) forControlEvents:UIControlEventTouchUpInside];
+    [openButton addTarget:self action:@selector(openCode) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openButton];
     [openButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(80 * APPP);
@@ -318,7 +380,7 @@
     closeButton.backgroundColor = [UIColor colorWithRed:0.78 green:0.20 blue:0.20 alpha:1.00];
     [closeButton setTitle:@"关门" forState:UIControlStateNormal];
     closeButton.layer.cornerRadius = 5;
-    [closeButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    [closeButton addTarget:self action:@selector(closeCode) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:closeButton];
     [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(80 * APPP);
@@ -327,6 +389,19 @@
         make.top.equalTo(self.view.mas_top).offset(topDistance * APPP);
     }];
     
+    // 蜂鸣器
+    UIButton *fengButton = [UIButton new];
+    fengButton.backgroundColor = [UIColor colorWithRed:0.78 green:0.20 blue:0.20 alpha:1.00];
+    [fengButton setTitle:@"蜂鸣器响" forState:UIControlStateNormal];
+    fengButton.layer.cornerRadius = 5;
+    [fengButton addTarget:self action:@selector(fengCode) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:fengButton];
+    [fengButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.offset(80 * APPP);
+        make.height.offset(40 * APPP);
+        make.top.equalTo(closeButton.mas_bottom).offset(40 * APPP);
+        make.centerX.equalTo(self.view);
+    }];
     // 导航
     [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(APPW);

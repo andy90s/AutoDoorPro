@@ -25,6 +25,7 @@
 		7D7F50D71E669B4200446A4A /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F50D61E669B4200446A4A /* UIButton+Block.m */; };
 		7D84244D1E7BBF8F0049C8D6 /* BLECode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D84244C1E7BBF8F0049C8D6 /* BLECode.m */; };
 		7D8581D01E7F6C3B0046DAE5 /* BLESliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8581CF1E7F6C3B0046DAE5 /* BLESliderView.m */; };
+		7DBB538A1E9E18F30006A2A2 /* BLETool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB53891E9E18F30006A2A2 /* BLETool.m */; };
 		7DC8F2A91E7A2A4E006E46F7 /* PeripheralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC8F2A81E7A2A4E006E46F7 /* PeripheralInfo.m */; };
 		B1A084B01B257BE883220318 /* libPods-AutoDoorPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBFE3BBB5A5B07B6CB9F03A /* libPods-AutoDoorPro.a */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,8 @@
 		7D84244C1E7BBF8F0049C8D6 /* BLECode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLECode.m; sourceTree = "<group>"; };
 		7D8581CE1E7F6C3B0046DAE5 /* BLESliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLESliderView.h; sourceTree = "<group>"; };
 		7D8581CF1E7F6C3B0046DAE5 /* BLESliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLESliderView.m; sourceTree = "<group>"; };
+		7DBB53881E9E18F30006A2A2 /* BLETool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLETool.h; sourceTree = "<group>"; };
+		7DBB53891E9E18F30006A2A2 /* BLETool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLETool.m; sourceTree = "<group>"; };
 		7DC8F2A71E7A2A4E006E46F7 /* PeripheralInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralInfo.h; sourceTree = "<group>"; };
 		7DC8F2A81E7A2A4E006E46F7 /* PeripheralInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralInfo.m; sourceTree = "<group>"; };
 		C3136FBD5939C536188BD217 /* Pods-AutoDoorPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoDoorPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				7D7DD92A1E8135150005EED8 /* UMConfig.m */,
 				7D7F50D51E669B4200446A4A /* UIButton+Block.h */,
 				7D7F50D61E669B4200446A4A /* UIButton+Block.m */,
+				7DBB53881E9E18F30006A2A2 /* BLETool.h */,
+				7DBB53891E9E18F30006A2A2 /* BLETool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -332,7 +337,7 @@
 				TargetAttributes = {
 					7D742E8A1E65122200EABF88 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = Y7K95VGMAC;
+						DevelopmentTeam = U67HE66P67;
 						ProvisioningStyle = Automatic;
 					};
 					7D742EA31E65122200EABF88 = {
@@ -462,6 +467,7 @@
 				7D7F50D71E669B4200446A4A /* UIButton+Block.m in Sources */,
 				7D742ED01E6556F800EABF88 /* XHNavView.m in Sources */,
 				7D742E901E65122200EABF88 /* main.m in Sources */,
+				7DBB538A1E9E18F30006A2A2 /* BLETool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,10 +617,11 @@
 			baseConfigurationReference = C3136FBD5939C536188BD217 /* Pods-AutoDoorPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y7K95VGMAC;
+				DEVELOPMENT_TEAM = U67HE66P67;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AutoDoorPro/AutodoorPrefixHeader.pch;
 				INFOPLIST_FILE = AutoDoorPro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xhliang.AutoDoorPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -626,10 +633,11 @@
 			baseConfigurationReference = FBA2402617430B8ECD6447FC /* Pods-AutoDoorPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y7K95VGMAC;
+				DEVELOPMENT_TEAM = U67HE66P67;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AutoDoorPro/AutodoorPrefixHeader.pch;
 				INFOPLIST_FILE = AutoDoorPro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xhliang.AutoDoorPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";

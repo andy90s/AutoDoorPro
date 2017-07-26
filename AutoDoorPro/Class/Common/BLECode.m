@@ -15,7 +15,11 @@ NSString *const BLE_ORDER_STUDY = @"AA0404";
 NSString *const BLE_ORDER_CLEAR = @"AA0504";
 NSString *const BLE_ORDER_PAIR = @"AA0604";
 NSString *const BLE_ORDER_RECIVE = @"AAFF04";
-
+NSString *const BLE_ORDER_FENGMING = @"AA0704";
+NSString *const BLE_ORDER_GETVERSION = @"AA010448";
+NSString *const BLE_ORDER_GETSTATUS = @"AA010450";
+NSString *const BLE_ORDER_RESET = @"AAFD04";
+NSString *const BLE_ORDER_FACTORY_RESET = @"AA0804";
 @implementation BLECode
 
 + (NSData *)bluetooth_request {
@@ -97,13 +101,14 @@ NSString *const BLE_ORDER_RECIVE = @"AAFF04";
         sum += bytes[i];
     }
     int sumT = sum;
-    int at = 256 -  sumT;
+    int at = 255 -  sumT;
     // 此处算到sum就可以
-    printf("校验和：%d\n",sum);
-    if (at == 256) {
+    printf("校验和：%d===%d",sum,at);
+    if (at == 255) {
         at = 0;
     }
-    NSString *str = [NSString stringWithFormat:@"%@%@",byteStr,[BLECode ToHex:sum]];
+    NSString *str = [NSString stringWithFormat:@"%@%@",byteStr,[BLECode ToHex:at]];
+    NSLog(@"最后结果:%@",str);
     return [BLECode hexToBytes:str];
 }
 

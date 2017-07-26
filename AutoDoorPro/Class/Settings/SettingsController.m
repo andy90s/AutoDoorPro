@@ -14,6 +14,8 @@
 
 #define channelOnCharacteristicView @"CharacteristicView"
 
+BOOL isPopSettingViewController = NO;
+
 typedef NS_ENUM(NSInteger,SliderTag) {
     SliderTagSpeed = 1000,
     SliderTagDamp = 1001,
@@ -55,6 +57,11 @@ typedef NS_ENUM(NSInteger,SliderTag) {
 @implementation SettingsController
 
 //  MARK: - <----------LifyCycle---------->
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self prepareUserInterface];
@@ -99,7 +106,11 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.navBar];
     WEAK_SELF(weakSelf);
+    weakify(self);
     self.navBar.leftBlock = ^() {
+        strongify(self);
+        isPopSettingViewController = YES;
+        [self->baby cancelNotify:weakSelf.currPeripheral characteristic:weakSelf.characteristic];
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     
@@ -112,7 +123,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     // 闭合力
     [self.view addSubview:self.closureView];
     // 自动关门
-    [self.view addSubview:self.autoCloseSwitch];
+        [self.view addSubview:self.autoCloseSwitch];
     // 开门方向
     [self.view addSubview:self.openDirectionSwitch];
     
@@ -125,28 +136,27 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         make.height.offset(APPH - 100);
         make.centerX.equalTo(self.view);
     }];
-    // 发送
+    // 重启
     CGFloat distance = 5;// 两个按键之间的距离/2
     CGFloat topDistance = 20;// 两个按键距离时间滑块距离
     UIButton *sendButton = [UIButton new];
     sendButton.backgroundColor = [UIColor colorWithRed:0.17 green:0.69 blue:0.80 alpha:1.00];
-    [sendButton setTitle:@"发送" forState:UIControlStateNormal];
+    [sendButton setTitle:@"重启" forState:UIControlStateNormal];
     [self.view addSubview:sendButton];
     sendButton.layer.cornerRadius = 5;
     [sendButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(80 * APPP);
-        make.height.offset(40 * APPP);
+        make.height.offset(35 * APPP);
         make.right.equalTo(tempLine).offset(-distance * APPP);
         make.top.equalTo(self.openDirectionSwitch.mas_bottom).offset(topDistance * APPP);
     }];
     [sendButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-         weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_REQUEST]];
+         weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_RESET]];
         if(![weakSelf isSuccess]) {
             [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
             return;
         }
-        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_REQUEST] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
-        
+        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_RESET] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
     }];
     // 接收
     UIButton *reciveButton = [UIButton new];
@@ -156,7 +166,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     [self.view addSubview:reciveButton];
     [reciveButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(80 * APPP);
-        make.height.offset(40 * APPP);
+        make.height.offset(35 * APPP);
         make.left.equalTo(tempLine).offset(distance * APPP);
         make.top.equalTo(self.openDirectionSwitch.mas_bottom).offset(topDistance * APPP);
     }];
@@ -176,9 +186,9 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     [self.view addSubview:clearButton];
     [clearButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(80 * APPP);
-        make.height.offset(40 * APPP);
+        make.height.offset(35 * APPP);
         make.centerX.equalTo(self.view);
-        make.top.equalTo(sendButton.mas_bottom).offset(20);
+        make.top.equalTo(sendButton.mas_bottom).offset(15);
     }];
     [clearButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_CLEAR]];
@@ -196,7 +206,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     studyButton.layer.cornerRadius = 5;
     [studyButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(80 * APPP);
-        make.height.offset(40 * APPP);
+        make.height.offset(35 * APPP);
         make.right.equalTo(clearButton.mas_left).offset(-20);
         make.centerY.equalTo(clearButton);
     }];
@@ -216,7 +226,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     [self.view addSubview:clearButton2];
     [clearButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(80 * APPP);
-        make.height.offset(40 * APPP);
+        make.height.offset(35 * APPP);
         make.centerY.equalTo(clearButton);
         make.left.equalTo(clearButton.mas_right).offset(20);
     }];
@@ -228,6 +238,49 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         }
         
         [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_PAIR] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    }];
+    
+    // 恢复出厂设置
+    UIButton *resetButton = [UIButton new];
+    resetButton.backgroundColor = [UIColor colorWithRed:0.78 green:0.20 blue:0.20 alpha:1.00];
+    [resetButton setTitle:@"恢复出厂设置" forState:UIControlStateNormal];
+    resetButton.layer.cornerRadius = 5;
+    [self.view addSubview:resetButton];
+    [resetButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.offset(35 * APPP);
+        make.width.offset(100 * APPP);
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(clearButton.mas_bottom).offset(20);
+    }];
+    [resetButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        // 输入密码
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请输入密码" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UITextField *textField = alertController.textFields.firstObject;
+            if ([textField.text isEqualToString:@"666666"]) {
+                //
+                weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_PAIR]];
+                if(![weakSelf isSuccess]) {
+                    [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
+                    return;
+                }
+                
+                [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_FACTORY_RESET] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+            } else {
+                [SVProgressHUD showErrorWithStatus:@"密码错误"];
+            }
+        }];
+        
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        }];
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
     }];
 }
 - (void)loadData {
@@ -257,17 +310,17 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         return NO;
     }
 }
-
+// 数据监听
 - (void)notify {
     if(self.currPeripheral.state != CBPeripheralStateConnected) {
         [SVProgressHUD showErrorWithStatus:@"peripheral已经断开连接，请重新连接"];
         return;
     }
     if (self.characteristic.properties & CBCharacteristicPropertyNotify ||  self.characteristic.properties & CBCharacteristicPropertyIndicate) {
-        
+        WEAK_SELF(weakSelf);
         if(self.characteristic.isNotifying) {
-            [baby cancelNotify:self.currPeripheral characteristic:self.characteristic];
-            
+
+
         }else{
             [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
             
@@ -276,7 +329,13 @@ typedef NS_ENUM(NSInteger,SliderTag) {
                    block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
                        NSLog(@"notify block");
                        NSLog(@"new value %@",characteristics.value);
-                       self.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value];
+                       weakSelf.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value.description];
+                       NSString *value = characteristics.value.description;
+                       // 状态
+                       if ([value hasPrefix:@"<5501"]) {
+                           [weakSelf updateStatus:value];
+                       }
+                       
                    }];
         }
     }
@@ -287,27 +346,66 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     
 }
 
+// 更新状态
+- (void)updateStatus:(NSString *)value {
+    
+    NSLog(@"返回的速度:%ld,阻尼:%ld,开门时间:%ld,紧闭力:%ld,自动:%@",[BLETool speed:value],[BLETool damp:value],[BLETool openTime:value],[BLETool closure:value],[BLETool switchStatus:value]);
+    self.speedView.currentValue = [BLETool speed:value];
+    self.dampView.currentValue = [BLETool damp:value];
+    self.timeView.currentValue = [BLETool openTime:value];
+    self.closureView.currentValue = [BLETool closure:value];
+    if ([[BLETool switchStatus:value] isEqualToString:@"0"]) {
+        [self.autoCloseSwitch setOn:NO];
+        [self.openDirectionSwitch setOn:NO];
+    }
+    if ([[BLETool switchStatus:value] isEqualToString:@"1"]) {
+        [self.autoCloseSwitch setOn:YES];
+        [self.openDirectionSwitch setOn:NO];
+    }
+    if ([[BLETool switchStatus:value] isEqualToString:@"2"]) {
+        [self.autoCloseSwitch setOn:NO];
+        [self.openDirectionSwitch setOn:YES];
+    }
+    if ([[BLETool switchStatus:value] isEqualToString:@"3"]) {
+        [self.autoCloseSwitch setOn:YES];
+        [self.openDirectionSwitch setOn:YES];
+    }
+}
+
+// 获取状态
+- (void)getStauts {
+    self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode hexToBytes:BLE_ORDER_GETSTATUS]];
+    if (![self isSuccess]) {
+        [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
+        return;
+    }
+    [self.currPeripheral writeValue:[BLECode hexToBytes:BLE_ORDER_GETSTATUS] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    //[self notify];
+}
+
 //  MARK: - <----------Slider Delegate---------->
-- (void)sliderValueChanged:(NSInteger)value tag:(NSInteger)tag {
+- (void)sliderValueChanged:(NSNumberFormatter*)value tag:(NSInteger)tag value:(CGFloat)cvalue
+{
+    NSString *result = [value stringFromNumber:@(cvalue)];
     switch (tag) {
         case SliderTagSpeed:
         {
-            speedValue = (int)value;
+            speedValue = (int)result.integerValue;
         }
             break;
         case SliderTagDamp:
         {
-            dampValue = (int)value;
+            dampValue = (int)result.integerValue;
         }
             break;
         case SliderTagClosure:
         {
-            closureValue = (int)value;
+            closureValue = (int)result.integerValue;
         }
             break;
         case SliderTagTime:
         {
-            timeValue = (int)value;
+            timeValue = (int)result.integerValue;
         }
             break;
             
@@ -325,15 +423,26 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     }
     self.autoCloseSwitch.isOn ? (autoCloseValue = 1) : (autoCloseValue = 0);
     self.openDirectionSwitch.isOn ? (openDirectionValue = 1) : (openDirectionValue = 0);
-//    NSLog(@"速度:%d缓冲:%d时间:%d闭合:%d",speedValue,dampValue,timeValue,closureValue);
-//    NSLog(@"速度:%@缓冲:%@时间:%@闭合:%@",[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex:closureValue]);
-    NSString *code = [NSString stringWithFormat:@"55%@%@%@%@%@%@%@",[BLECode ToHex:1],[BLECode ToHex:9],[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex:autoCloseValue + openDirectionValue],[BLECode ToHex:closureValue]];
+    NSInteger v = 0;
+    if (autoCloseValue == 0 && openDirectionValue == 0) {
+        v = 0;
+    } else if (autoCloseValue == 1 && openDirectionValue == 0) {
+        v = 1;
+    } else if (autoCloseValue == 0 && openDirectionValue == 1) {
+        v = 2;
+    } else if (autoCloseValue == 1 && openDirectionValue == 1) {
+        v = 3;
+    }
+    NSLog(@"速度:%d缓冲:%d时间:%d闭合:%d 特殊:%ld",speedValue,dampValue,timeValue,closureValue,(long)v);
+    NSLog(@"速度:%@缓冲:%@时间:%@闭合:%@ 特殊:%ld",[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex:closureValue],(long)v);
+    NSString *code = [NSString stringWithFormat:@"55%@%@%@%@%@%@%@",[BLECode ToHex:1],[BLECode ToHex:9],[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex:(int)v],[BLECode ToHex:closureValue]];
     self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:code]];
     if(!self.currPeripheral && !self.characteristic && self.currPeripheral.state != CBPeripheralStateConnected) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
     [self.currPeripheral writeValue:[BLECode getCheckSum:code] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    
 }
 
 -(void)switchAction:(id)sender {
@@ -389,6 +498,8 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     [baby setBlockOnDiscoverDescriptorsForCharacteristicAtChannel:channelOnCharacteristicView block:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         if (characteristic.descriptors.count > 0) {
             weakSelf.characteristic = characteristic;
+            [weakSelf notify];
+            [weakSelf getStauts];
         }
         
     }];
@@ -402,6 +513,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
 
             }
         }
+        
         NSLog(@"CharacteristicViewController Descriptor name:%@ value is:%@",descriptor.characteristic.UUID, descriptor.value);
     }];
     
