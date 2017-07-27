@@ -59,4 +59,9 @@
     return s;
 }
 
++ (NSString *)getSpecStatus:(NSString *)value {
+    NSString *speed = [[self replaceString:value] substringWithRange:NSMakeRange(12, 2)];
+    return [BLECode getBinaryByhex:[NSString stringWithFormat:@"%ld",strtoul([speed UTF8String], 0, 16)] binary:nil];
+}
+
 @end

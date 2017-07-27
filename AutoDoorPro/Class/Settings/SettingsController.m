@@ -11,6 +11,7 @@
 #import "ASValueTrackingSlider.h"
 #import "UIButton+Block.h"
 #import "BLESliderView.h"
+#import "ADRadioButton.h"
 
 #define channelOnCharacteristicView @"CharacteristicView"
 
@@ -29,6 +30,9 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     int timeValue;
     int autoCloseValue;
     int openDirectionValue;
+    int specByte1;
+    int specByte2;
+    NSString *specBytes;
 }
 
 /** 假导航*/
@@ -45,6 +49,8 @@ typedef NS_ENUM(NSInteger,SliderTag) {
 @property (nonatomic,strong) UISwitch *autoCloseSwitch;
 /** 开门方向*/
 @property (nonatomic,strong) UISwitch *openDirectionSwitch;
+/** 工作模式 */
+@property (nonatomic,strong) ADRadioButton *radioButtons;
 
 
 
@@ -116,12 +122,46 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     
     // 速度
     [self.view addSubview:self.speedView];
-    // 阻尼·
-    [self.view addSubview:self.dampView];
+    // 阻尼· 暂时去掉
+    //[self.view addSubview:self.dampView];
     // 时间
     [self.view addSubview:self.timeView];
+    
+    // 工作模式
+    
+    [self.view addSubview:self.radioButtons];
+    self.radioButtons.block = ^(NSInteger index) {
+        strongify(self);
+        switch (index) {
+            case 0:
+            {
+                specBytes = @"00";
+                [self sendData];
+            }
+                break;
+            case 1:
+            {
+                specBytes = @"01";
+                [self sendData];
+            }
+                break;
+            case 2:
+            {
+                specBytes = @"10";
+                [self sendData];
+            }
+                break;
+                
+            default:
+                break;
+            
+        }
+        
+    };
+    
+    
     // 闭合力
-    [self.view addSubview:self.closureView];
+    // [self.view addSubview:self.closureView];
     // 自动关门
         [self.view addSubview:self.autoCloseSwitch];
     // 开门方向
@@ -136,48 +176,30 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         make.height.offset(APPH - 100);
         make.centerX.equalTo(self.view);
     }];
-    // 重启
+    
     CGFloat distance = 5;// 两个按键之间的距离/2
     CGFloat topDistance = 20;// 两个按键距离时间滑块距离
-    UIButton *sendButton = [UIButton new];
-    sendButton.backgroundColor = [UIColor colorWithRed:0.17 green:0.69 blue:0.80 alpha:1.00];
-    [sendButton setTitle:@"重启" forState:UIControlStateNormal];
-    [self.view addSubview:sendButton];
-    sendButton.layer.cornerRadius = 5;
-    [sendButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.offset(80 * APPP);
-        make.height.offset(35 * APPP);
-        make.right.equalTo(tempLine).offset(-distance * APPP);
-        make.top.equalTo(self.openDirectionSwitch.mas_bottom).offset(topDistance * APPP);
-    }];
-    [sendButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-         weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_RESET]];
-        if(![weakSelf isSuccess]) {
-            [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
-            return;
-        }
-        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_RESET] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
-    }];
+    
     // 接收
-    UIButton *reciveButton = [UIButton new];
-    reciveButton.backgroundColor = [UIColor colorWithRed:0.78 green:0.20 blue:0.20 alpha:1.00];
-    [reciveButton setTitle:@"接收" forState:UIControlStateNormal];
-    reciveButton.layer.cornerRadius = 5;
-    [self.view addSubview:reciveButton];
-    [reciveButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.offset(80 * APPP);
-        make.height.offset(35 * APPP);
-        make.left.equalTo(tempLine).offset(distance * APPP);
-        make.top.equalTo(self.openDirectionSwitch.mas_bottom).offset(topDistance * APPP);
-    }];
-    [reciveButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_RECIVE]];
-        if(![weakSelf isSuccess]) {
-            [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
-            return;
-        }
-        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_RECIVE] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
-    }];
+//    UIButton *reciveButton = [UIButton new];
+//    reciveButton.backgroundColor = [UIColor colorWithRed:0.78 green:0.20 blue:0.20 alpha:1.00];
+//    [reciveButton setTitle:@"接收" forState:UIControlStateNormal];
+//    reciveButton.layer.cornerRadius = 5;
+//    [self.view addSubview:reciveButton];
+//    [reciveButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.offset(80 * APPP);
+//        make.height.offset(35 * APPP);
+//        make.left.equalTo(tempLine).offset(distance * APPP);
+//        make.top.equalTo(self.openDirectionSwitch.mas_bottom).offset(topDistance * APPP);
+//    }];
+//    [reciveButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+//        weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_RECIVE]];
+//        if(![weakSelf isSuccess]) {
+//            [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
+//            return;
+//        }
+//        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_RECIVE] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+//    }];
     // 中间清码按钮
     UIButton *clearButton = [UIButton new];
     clearButton.backgroundColor = [UIColor colorWithRed:0.78 green:0.20 blue:0.20 alpha:1.00];
@@ -188,7 +210,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         make.width.offset(80 * APPP);
         make.height.offset(35 * APPP);
         make.centerX.equalTo(self.view);
-        make.top.equalTo(sendButton.mas_bottom).offset(15);
+        make.top.equalTo(self.openDirectionSwitch.mas_bottom).offset(topDistance * APPP);
     }];
     [clearButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_CLEAR]];
@@ -240,6 +262,29 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_PAIR] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
     }];
     
+    
+    // 重启
+    
+    UIButton *sendButton = [UIButton new];
+    sendButton.backgroundColor = [UIColor colorWithRed:0.17 green:0.69 blue:0.80 alpha:1.00];
+    [sendButton setTitle:@"重启" forState:UIControlStateNormal];
+    [self.view addSubview:sendButton];
+    sendButton.layer.cornerRadius = 5;
+    [sendButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.offset(35 * APPP);
+        make.width.offset(100 * APPP);
+        make.right.equalTo(tempLine).offset(-distance * APPP);
+        make.top.equalTo(clearButton.mas_bottom).offset(20);
+    }];
+    [sendButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_RESET]];
+        if(![weakSelf isSuccess]) {
+            [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
+            return;
+        }
+        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_RESET] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    }];
+    
     // 恢复出厂设置
     UIButton *resetButton = [UIButton new];
     resetButton.backgroundColor = [UIColor colorWithRed:0.78 green:0.20 blue:0.20 alpha:1.00];
@@ -249,7 +294,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     [resetButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.offset(35 * APPP);
         make.width.offset(100 * APPP);
-        make.centerX.equalTo(self.view);
+        make.left.equalTo(tempLine).offset(distance * APPP);
         make.top.equalTo(clearButton.mas_bottom).offset(20);
     }];
     [resetButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
@@ -262,7 +307,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
             UITextField *textField = alertController.textFields.firstObject;
             if ([textField.text isEqualToString:@"666666"]) {
                 //
-                weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_PAIR]];
+                weakSelf.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_FACTORY_RESET]];
                 if(![weakSelf isSuccess]) {
                     [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
                     return;
@@ -297,10 +342,12 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         baby.having(self.currPeripheral).and.channel(channelOnCharacteristicView).then.connectToPeripherals().discoverServices().discoverCharacteristics().readValueForCharacteristic().discoverDescriptorsForCharacteristic().readValueForDescriptors().begin();
     }
     // 初始化数据值
-    speedValue = 0;
-    dampValue = 0;
-    closureValue = 0;
-    timeValue = 0;
+    speedValue = 30;
+    dampValue = 80;
+    closureValue = 10;
+    timeValue = 7;
+    specByte1 = 0;
+    specByte2 = 0;
 }
 // 判断是否已经找到符合的特征
 - (BOOL)isSuccess {
@@ -354,22 +401,41 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     self.dampView.currentValue = [BLETool damp:value];
     self.timeView.currentValue = [BLETool openTime:value];
     self.closureView.currentValue = [BLETool closure:value];
-    if ([[BLETool switchStatus:value] isEqualToString:@"0"]) {
-        [self.autoCloseSwitch setOn:NO];
-        [self.openDirectionSwitch setOn:NO];
+    
+    NSString *binaryStr = [BLETool getSpecStatus:value];
+    NSString *value1 = [binaryStr substringWithRange:NSMakeRange(0, 2)];
+    NSString *value3 = [binaryStr substringWithRange:NSMakeRange(2, 1)];
+    NSString *value4 = [binaryStr substringWithRange:NSMakeRange(3, 1)];
+    
+    if ([value1 isEqualToString:@"00"]) {
+        self.radioButtons.selectedIndex = 0;
     }
-    if ([[BLETool switchStatus:value] isEqualToString:@"1"]) {
-        [self.autoCloseSwitch setOn:YES];
-        [self.openDirectionSwitch setOn:NO];
+    if ([value1 isEqualToString:@"01"]) {
+        self.radioButtons.selectedIndex = 1;
     }
-    if ([[BLETool switchStatus:value] isEqualToString:@"2"]) {
-        [self.autoCloseSwitch setOn:NO];
-        [self.openDirectionSwitch setOn:YES];
+    if ([value1 isEqualToString:@"10"]) {
+        self.radioButtons.selectedIndex = 2;
     }
-    if ([[BLETool switchStatus:value] isEqualToString:@"3"]) {
-        [self.autoCloseSwitch setOn:YES];
-        [self.openDirectionSwitch setOn:YES];
-    }
+    
+    [self.autoCloseSwitch setOn:[value3 isEqualToString:@"1"]];
+    [self.openDirectionSwitch setOn:[value4 isEqualToString:@"1"]];
+
+//    if ([[BLETool switchStatus:value] isEqualToString:@"0"]) {
+//        [self.autoCloseSwitch setOn:NO];
+//        [self.openDirectionSwitch setOn:NO];
+//    }
+//    if ([[BLETool switchStatus:value] isEqualToString:@"1"]) {
+//        [self.autoCloseSwitch setOn:YES];
+//        [self.openDirectionSwitch setOn:NO];
+//    }
+//    if ([[BLETool switchStatus:value] isEqualToString:@"2"]) {
+//        [self.autoCloseSwitch setOn:NO];
+//        [self.openDirectionSwitch setOn:YES];
+//    }
+//    if ([[BLETool switchStatus:value] isEqualToString:@"3"]) {
+//        [self.autoCloseSwitch setOn:YES];
+//        [self.openDirectionSwitch setOn:YES];
+//    }
 }
 
 // 获取状态
@@ -415,6 +481,10 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     [self sendData];
 }
 
+- (void)specialData {
+    
+}
+
 - (void)sendData {
     
     if(![self isSuccess]) {
@@ -423,19 +493,32 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     }
     self.autoCloseSwitch.isOn ? (autoCloseValue = 1) : (autoCloseValue = 0);
     self.openDirectionSwitch.isOn ? (openDirectionValue = 1) : (openDirectionValue = 0);
-    NSInteger v = 0;
-    if (autoCloseValue == 0 && openDirectionValue == 0) {
-        v = 0;
-    } else if (autoCloseValue == 1 && openDirectionValue == 0) {
-        v = 1;
-    } else if (autoCloseValue == 0 && openDirectionValue == 1) {
-        v = 2;
-    } else if (autoCloseValue == 1 && openDirectionValue == 1) {
-        v = 3;
-    }
-    NSLog(@"速度:%d缓冲:%d时间:%d闭合:%d 特殊:%ld",speedValue,dampValue,timeValue,closureValue,(long)v);
-    NSLog(@"速度:%@缓冲:%@时间:%@闭合:%@ 特殊:%ld",[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex:closureValue],(long)v);
-    NSString *code = [NSString stringWithFormat:@"55%@%@%@%@%@%@%@",[BLECode ToHex:1],[BLECode ToHex:9],[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex:(int)v],[BLECode ToHex:closureValue]];
+    
+    // 特殊位拼接字符串
+    NSString *spec = [NSString stringWithFormat:@"%@%d%d",specBytes,autoCloseValue,openDirectionValue];
+    //NSData *data = [[NSData alloc]initWithBase64EncodedString:sepc options:NSUTF8StringEncoding];
+    NSLog(@"======= %@",[BLECode getBinaryByhex:nil binary:spec]);
+    
+    
+   
+//    NSInteger v = 0;
+//    if (autoCloseValue == 0 && openDirectionValue == 0) {
+//        v = 0;
+//    } else if (autoCloseValue == 1 && openDirectionValue == 0) {
+//        v = 1;
+//    } else if (autoCloseValue == 0 && openDirectionValue == 1) {
+//        v = 2;
+//    } else if (autoCloseValue == 1 && openDirectionValue == 1) {
+//        v = 3;
+//    }
+//    NSLog(@"速度:%d缓冲:%d时间:%d闭合:%d 特殊:%ld",speedValue,dampValue,timeValue,closureValue,(long)v);
+    
+//    NSLog(@"速度:%@缓冲:%@时间:%@闭合:%@ 特殊:%@",[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex: ],[BLECode ToHex:(int)[BLECode toDecimalWithBinary:spec].integerValue]);
+    
+    // [BLECode ToHex:dampValue]
+    
+    
+    NSString *code = [NSString stringWithFormat:@"55%@%@%@%@%@%@%@",[BLECode ToHex:1],[BLECode ToHex:9],[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex:(int)[BLECode toDecimalWithBinary:spec].integerValue],[BLECode ToHex:closureValue]];
     self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:code]];
     if(!self.currPeripheral && !self.characteristic && self.currPeripheral.state != CBPeripheralStateConnected) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
@@ -542,6 +625,15 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     return _navBar;
 }
 
+- (ADRadioButton *)radioButtons {
+    if (!_radioButtons) {
+        _radioButtons = [[ADRadioButton alloc]initWithFrame:CGRectMake(0, 0, APPW - (40 * APPP), 40 * APPP)];
+        _radioButtons.rowCount = 3;
+        _radioButtons.buttonSettings = @[@[@"独立",@"2"],@[@"联动",@"2"],@[@"接力",@"2"]];
+    }
+    return _radioButtons;
+}
+
 - (BLESliderView *)speedView {
     if (!_speedView) {
         _speedView = [BLESliderView new];
@@ -628,31 +720,48 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         make.height.offset(60 * APPP);
     }];
     // 阻尼/缓冲
-    [self.dampView mas_makeConstraints:^(MASConstraintMaker *make) {
+//    [self.dampView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.offset(APPW);
+//        make.centerX.equalTo(self.view);
+//        make.top.equalTo(self.speedView.mas_bottom).offset(5);
+//        make.height.offset(60 * APPP);
+//    }];
+    
+    // 时间滑块
+    [self.timeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.offset(APPW);
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.speedView.mas_bottom).offset(5);
         make.height.offset(60 * APPP);
     }];
     
-    // 时间滑块
-    [self.timeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.offset(APPW);
+    UILabel *tempLab = [UILabel new];
+    tempLab.text = @"工作模式";
+    [self.view addSubview:tempLab];
+    [tempLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20 * APPP);
+        make.top.equalTo(self.timeView.mas_bottom).offset(5);
+        make.height.offset(20 * APPP);
+    }];
+    
+    
+    [self.radioButtons mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.offset(APPW - (40 * APPP));
         make.centerX.equalTo(self.view);
-        make.top.equalTo(self.closureView.mas_bottom).offset(5);
-        make.height.offset(60 * APPP);
+        make.top.equalTo(tempLab.mas_bottom);
+        make.height.offset(40 * APPP);
     }];
     // 闭合力
-    [self.closureView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.offset(APPW);
-        make.centerX.equalTo(self.view);
-        make.top.equalTo(self.dampView.mas_bottom).offset(5);
-        make.height.offset(60 * APPP);
-    }];
+//    [self.closureView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.offset(APPW);
+//        make.centerX.equalTo(self.view);
+//        make.top.equalTo(self.dampView.mas_bottom).offset(5);
+//        make.height.offset(60 * APPP);
+//    }];
     // 自动关门
     [self.autoCloseSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view.mas_right).offset(-30 * APPP);
-        make.top.equalTo(self.timeView.mas_bottom).offset(5);
+        make.top.equalTo(self.radioButtons.mas_bottom).offset(5);
     }];
     UILabel *autoLabel = [UILabel new];
     autoLabel.text = @"自动关门";

@@ -27,6 +27,7 @@
 		7D8581D01E7F6C3B0046DAE5 /* BLESliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8581CF1E7F6C3B0046DAE5 /* BLESliderView.m */; };
 		7DBB538A1E9E18F30006A2A2 /* BLETool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB53891E9E18F30006A2A2 /* BLETool.m */; };
 		7DC8F2A91E7A2A4E006E46F7 /* PeripheralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC8F2A81E7A2A4E006E46F7 /* PeripheralInfo.m */; };
+		848B34EE1F289A1400A8DA43 /* ADRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B34ED1F289A1400A8DA43 /* ADRadioButton.m */; };
 		B1A084B01B257BE883220318 /* libPods-AutoDoorPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBFE3BBB5A5B07B6CB9F03A /* libPods-AutoDoorPro.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		7DBB53891E9E18F30006A2A2 /* BLETool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLETool.m; sourceTree = "<group>"; };
 		7DC8F2A71E7A2A4E006E46F7 /* PeripheralInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralInfo.h; sourceTree = "<group>"; };
 		7DC8F2A81E7A2A4E006E46F7 /* PeripheralInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralInfo.m; sourceTree = "<group>"; };
+		848B34EC1F289A1400A8DA43 /* ADRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADRadioButton.h; sourceTree = "<group>"; };
+		848B34ED1F289A1400A8DA43 /* ADRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADRadioButton.m; sourceTree = "<group>"; };
 		C3136FBD5939C536188BD217 /* Pods-AutoDoorPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoDoorPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro.debug.xcconfig"; sourceTree = "<group>"; };
 		FBA2402617430B8ECD6447FC /* Pods-AutoDoorPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoDoorPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +254,8 @@
 				7D7F50D61E669B4200446A4A /* UIButton+Block.m */,
 				7DBB53881E9E18F30006A2A2 /* BLETool.h */,
 				7DBB53891E9E18F30006A2A2 /* BLETool.m */,
+				848B34EC1F289A1400A8DA43 /* ADRadioButton.h */,
+				848B34ED1F289A1400A8DA43 /* ADRadioButton.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -408,13 +413,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutoDoorPro-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D211973676A79DBACB5810B2 /* [CP] Embed Pods Frameworks */ = {
@@ -438,9 +446,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AutoDoorPro/Pods-AutoDoorPro-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -457,6 +468,7 @@
 				7D84244D1E7BBF8F0049C8D6 /* BLECode.m in Sources */,
 				7D7F50D21E665E6400446A4A /* SEFilterControl.m in Sources */,
 				7D7F50D31E665E6400446A4A /* SEFilterKnob.m in Sources */,
+				848B34EE1F289A1400A8DA43 /* ADRadioButton.m in Sources */,
 				7D8581D01E7F6C3B0046DAE5 /* BLESliderView.m in Sources */,
 				7D742EC91E65135D00EABF88 /* ControllDoorController.m in Sources */,
 				7DC8F2A91E7A2A4E006E46F7 /* PeripheralInfo.m in Sources */,

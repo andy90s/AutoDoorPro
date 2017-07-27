@@ -58,4 +58,22 @@ UIKIT_EXTERN NSString *const BLE_ORDER_FACTORY_RESET;
  */
 + (NSData *)hexToBytes:(NSString *)str;
 
+
+/**
+ 16进制和2进制互转
+
+ @param hex <#hex description#>
+ @param binary <#binary description#>
+ @return <#return value description#>
+ */
++ (NSString *)getBinaryByhex:(NSString *)hex binary:(NSString *)binary;
+
+/**
+ 二进制转十进制
+
+ @param binary <#binary description#>
+ @return <#return value description#>
+ */
++ (NSString *)toDecimalWithBinary:(NSString *)binary;
+
 @end

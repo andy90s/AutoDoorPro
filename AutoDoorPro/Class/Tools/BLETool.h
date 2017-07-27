@@ -25,4 +25,12 @@
 /** 开关和方向*/
 + (NSString *)switchStatus:(NSString *)value;
 + (NSString *)replaceString:(NSString *)value;
+
+/**
+ 得到特殊位的值
+
+ @param value <#value description#>
+ @return 返回`二级制字符串`
+ */
++ (NSString *)getSpecStatus:(NSString *)value;
 @end
