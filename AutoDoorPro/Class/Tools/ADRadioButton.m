@@ -66,8 +66,18 @@
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     _selectedIndex = selectedIndex;
-    ADRadioButtonCellModel *model = self.dataArray[_selectedIndex];
-    model.isSelected = YES;
+    
+    [self.dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ADRadioButtonCellModel *model = obj;
+        if (_selectedIndex == idx) {
+            model.isSelected = YES;
+        } else {
+            model.isSelected = NO;
+        }
+    }];
+    
+//    ADRadioButtonCellModel *model = self.dataArray[_selectedIndex];
+//    model.isSelected = YES;
     [self.collectionView reloadData];
 }
 
