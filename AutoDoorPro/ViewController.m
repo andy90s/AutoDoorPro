@@ -208,8 +208,8 @@
         //        }
         //        return NO;
         
-        //设置查找规则是名称大于0 ， the search rule is peripheral.name length > 0
-        if (peripheralName.length >= 0) {
+        //设置查找规则是名称大于0 ， the search rule is peripheral.name length > 0 避免很多null设备
+        if (peripheralName.length > 0) {
             return YES;
         }
         return NO;

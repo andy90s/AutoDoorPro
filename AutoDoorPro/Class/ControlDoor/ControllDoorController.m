@@ -96,16 +96,39 @@
     weakify(self);
     self.navBar.rightBlock = ^() {
         strongify(self);
-        SettingsController *vc = [SettingsController new];
-        vc->baby = baby;
-        vc.currPeripheral = weakSelf.currPeripheral;
-        vc.characteristic = weakSelf.characteristic;
-        if(weakSelf.characteristic.isNotifying) {
-        [self->baby cancelNotify:weakSelf.currPeripheral characteristic:weakSelf.characteristic];
-        }
-        isPopSettingViewController = NO;
-        [weakSelf.navigationController pushViewController:vc animated:YES];
-    };
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请输入密码" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UITextField *textField = alertController.textFields.firstObject;
+            if ([textField.text isEqualToString:@"888888"]) {
+                //
+                SettingsController *vc = [SettingsController new];
+                vc->baby = baby;
+                vc.currPeripheral = weakSelf.currPeripheral;
+                vc.characteristic = weakSelf.characteristic;
+                if(weakSelf.characteristic.isNotifying) {
+                    [self->baby cancelNotify:weakSelf.currPeripheral characteristic:weakSelf.characteristic];
+                }
+                isPopSettingViewController = NO;
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+
+                
+            } else {
+                [SVProgressHUD showErrorWithStatus:@"密码错误"];
+            }
+        }];
+        
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        }];
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
+
+     };
 }
 
 - (void)notify {
@@ -137,7 +160,7 @@
         }
     }
     else{
-        [SVProgressHUD showErrorWithStatus:@"这个characteristic没有nofity的权限"];
+        //[SVProgressHUD showErrorWithStatus:@"这个characteristic没有nofity的权限"];
         return;
     }
 
@@ -145,7 +168,7 @@
 
 // 获取版本号
 - (void)getVersion {
-    self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode hexToBytes:BLE_ORDER_GETVERSION]];
+    self.sendLabel.text = [[NSString stringWithFormat:@"发送指令:%@",[BLECode hexToBytes:BLE_ORDER_GETVERSION]] uppercaseString];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
@@ -154,7 +177,7 @@
 }
 
 - (void)fengCode {
-    self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_FENGMING]];
+    self.sendLabel.text = [[NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_FENGMING]] uppercaseString];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
@@ -163,7 +186,7 @@
 }
 
 - (void)openCode {
-    self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_OPEN]];
+    self.sendLabel.text = [[NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_OPEN]] uppercaseString];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
@@ -172,7 +195,7 @@
 }
 
 - (void)closeCode {
-    self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_CLOSE]];
+    self.sendLabel.text = [[NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_CLOSE]] uppercaseString];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;

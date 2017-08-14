@@ -387,7 +387,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         }
     }
     else{
-        [SVProgressHUD showErrorWithStatus:@"这个characteristic没有nofity的权限"];
+        //[SVProgressHUD showErrorWithStatus:@"这个characteristic没有nofity的权限"];
         return;
     }
     
