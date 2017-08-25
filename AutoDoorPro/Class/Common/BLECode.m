@@ -232,6 +232,22 @@ NSString *const BLE_ORDER_FACTORY_RESET = @"AA0804";
 }
 
 
+//将传入的NSData类型转换成NSString并返回
++ (NSString*)hexadecimalString:(NSData *)data{
+    NSString* result;
+    const unsigned char* dataBuffer = (const unsigned char*)[data bytes];
+    if(!dataBuffer){
+        return nil;
+    }
+    NSUInteger dataLength = [data length];
+    NSMutableString* hexString = [NSMutableString stringWithCapacity:(dataLength * 2)];
+    for(int i = 0; i < dataLength; i++){
+        [hexString appendString:[NSString stringWithFormat:@"%02lx", (unsigned long)dataBuffer[i]]];
+    }
+    result = [NSString stringWithString:hexString];
+    return result;
+}
+
 
 
 

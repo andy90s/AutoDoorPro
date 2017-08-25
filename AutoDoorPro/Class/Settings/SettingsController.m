@@ -67,6 +67,10 @@ typedef NS_ENUM(NSInteger,SliderTag) {
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getStauts];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -116,7 +120,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     self.navBar.leftBlock = ^() {
         strongify(self);
         isPopSettingViewController = YES;
-        [self->baby cancelNotify:weakSelf.currPeripheral characteristic:weakSelf.characteristic];
+        [self->baby cancelNotify:weakSelf.currPeripheral characteristic:weakSelf.notifyCharacteristic];
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     
@@ -218,7 +222,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
             [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
             return;
         }
-        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_CLEAR] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_CLEAR] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
     }];
     // 自学习
     UIButton *studyButton = [UIButton new];
@@ -238,7 +242,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
             [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
             return;
         }
-        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_STUDY] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_STUDY] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
     }];
     // 右侧对码按钮
     UIButton *clearButton2 = [UIButton new];
@@ -259,7 +263,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
             return;
         }
         
-        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_PAIR] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_PAIR] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
     }];
     
     
@@ -282,7 +286,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
             [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
             return;
         }
-        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_RESET] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+        [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_RESET] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
     }];
     
     // 恢复出厂设置
@@ -313,7 +317,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
                     return;
                 }
                 
-                [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_FACTORY_RESET] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+                [weakSelf.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_FACTORY_RESET] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
             } else {
                 [SVProgressHUD showErrorWithStatus:@"密码错误"];
             }
@@ -336,8 +340,8 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     // 配置ble委托
     [self babyDelegate];
     // 读取服务
-    if (self.currPeripheral && self.characteristic) {
-        baby.channel(channelOnCharacteristicView).characteristicDetails(self.currPeripheral,self.characteristic);
+    if (self.currPeripheral && self.writeCharacteristic) {
+        baby.channel(channelOnCharacteristicView).characteristicDetails(self.currPeripheral,self.writeCharacteristic);
     } else {
         baby.having(self.currPeripheral).and.channel(channelOnCharacteristicView).then.connectToPeripherals().discoverServices().discoverCharacteristics().readValueForCharacteristic().discoverDescriptorsForCharacteristic().readValueForDescriptors().begin();
     }
@@ -348,10 +352,11 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     timeValue = 7;
     specByte1 = 0;
     specByte2 = 0;
+    [self notify];
 }
 // 判断是否已经找到符合的特征
 - (BOOL)isSuccess {
-    if (self.characteristic && self.currPeripheral.state == CBPeripheralStateConnected) {
+    if (self.currPeripheral.state == CBPeripheralStateConnected) {
         return YES;
     } else {
         return NO;
@@ -359,37 +364,54 @@ typedef NS_ENUM(NSInteger,SliderTag) {
 }
 // 数据监听
 - (void)notify {
+    
+    WEAK_SELF(weakSelf);
     if(self.currPeripheral.state != CBPeripheralStateConnected) {
         [SVProgressHUD showErrorWithStatus:@"peripheral已经断开连接，请重新连接"];
         return;
     }
-    if (self.characteristic.properties & CBCharacteristicPropertyNotify ||  self.characteristic.properties & CBCharacteristicPropertyIndicate) {
-        WEAK_SELF(weakSelf);
-        if(self.characteristic.isNotifying) {
+    
+    [baby notify:self.currPeripheral
+  characteristic:self.notifyCharacteristic
+           block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
+               NSLog(@"notify block");
+               NSLog(@"new value %@",characteristics.value);
+               weakSelf.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value.description];
+               NSString *value = [BLECode hexadecimalString:characteristics.value];
+               // 状态
+               if ([value hasPrefix:@"5501"]) {
+                   [weakSelf updateStatus:value];
+               }
+               
+           }];
 
-
-        }else{
-            [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
-            
-            [baby notify:self.currPeripheral
-          characteristic:self.characteristic
-                   block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
-                       NSLog(@"notify block");
-                       NSLog(@"new value %@",characteristics.value);
-                       weakSelf.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value.description];
-                       NSString *value = characteristics.value.description;
-                       // 状态
-                       if ([value hasPrefix:@"<5501"]) {
-                           [weakSelf updateStatus:value];
-                       }
-                       
-                   }];
-        }
-    }
-    else{
-        //[SVProgressHUD showErrorWithStatus:@"这个characteristic没有nofity的权限"];
-        return;
-    }
+//    if (self.notifyCharacteristic.properties & CBCharacteristicPropertyNotify ||  self.characteristic.properties & CBCharacteristicPropertyIndicate) {
+//        WEAK_SELF(weakSelf);
+//        if(self.characteristic.isNotifying) {
+//            [baby notify:self.currPeripheral
+//          characteristic:self.characteristic
+//                   block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
+//                       NSLog(@"notify block");
+//                       NSLog(@"new value %@",characteristics.value);
+//                       weakSelf.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value.description];
+//                       NSString *value = [BLECode hexadecimalString:characteristics.value];
+//                       // 状态
+//                       if ([value hasPrefix:@"5501"]) {
+//                           [weakSelf updateStatus:value];
+//                       }
+//                       
+//                   }];
+//
+//
+//        }else{
+//            [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
+//            
+//                   }
+//    }
+//    else{
+//        //[SVProgressHUD showErrorWithStatus:@"这个characteristic没有nofity的权限"];
+//        return;
+//    }
     
 }
 
@@ -445,7 +467,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
-    [self.currPeripheral writeValue:[BLECode hexToBytes:BLE_ORDER_GETSTATUS] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    [self.currPeripheral writeValue:[BLECode hexToBytes:BLE_ORDER_GETSTATUS] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
     //[self notify];
 }
 
@@ -520,11 +542,11 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     
     NSString *code = [NSString stringWithFormat:@"55%@%@%@%@%@%@%@",[BLECode ToHex:1],[BLECode ToHex:9],[BLECode ToHex:speedValue],[BLECode ToHex:dampValue],[BLECode ToHex:timeValue],[BLECode ToHex:(int)[BLECode toDecimalWithBinary:spec].integerValue],[BLECode ToHex:closureValue]];
     self.sendLabel.text = [NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:code]];
-    if(!self.currPeripheral && !self.characteristic && self.currPeripheral.state != CBPeripheralStateConnected) {
+    if(!self.currPeripheral && !self.writeCharacteristic && self.currPeripheral.state != CBPeripheralStateConnected) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
-    [self.currPeripheral writeValue:[BLECode getCheckSum:code] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    [self.currPeripheral writeValue:[BLECode getCheckSum:code] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
     
 }
 
@@ -579,11 +601,41 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     }];
     //设置发现characteristics的descriptors的委托
     [baby setBlockOnDiscoverDescriptorsForCharacteristicAtChannel:channelOnCharacteristicView block:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
-        if (characteristic.descriptors.count > 0) {
-            weakSelf.characteristic = characteristic;
-            [weakSelf notify];
-            [weakSelf getStauts];
+        
+        // 写入的特征值
+        
+        if ([characteristic.UUID.UUIDString isEqualToString:@"FFF6"]) {
+            if (!weakSelf.writeCharacteristic) {
+                if (characteristic.properties & CBCharacteristicPropertyWrite) {
+                    weakSelf.writeCharacteristic = characteristic;
+                    [weakSelf getStauts];
+                }
+            }
         }
+        // 通知的特征值
+        if ([characteristic.UUID.UUIDString isEqualToString:@"FFF7"]) {
+            
+            if (!weakSelf.notifyCharacteristic) {
+                weakSelf.notifyCharacteristic = characteristic;
+                [weakSelf notify];
+            }
+            
+        }
+        
+//        if (characteristic.properties & CBCharacteristicPropertyRead) {
+//            if (characteristic.properties & CBCharacteristicPropertyWrite) {
+//                if (characteristic.properties & CBCharacteristicPropertyNotify) {
+//                    weakSelf.notifyCharacteristic = characteristic;
+//                    [weakSelf notify];
+//                    [weakSelf getStauts];
+//                }
+//            }
+//        }
+//        if (characteristic.properties & CBCharacteristicPropertyNotify || characteristic.properties & CBCharacteristicPropertyIndicate) {
+//            weakSelf.characteristic = characteristic;
+//            [weakSelf notify];
+//            [weakSelf getStauts];
+//        }
         
     }];
 
@@ -602,7 +654,7 @@ typedef NS_ENUM(NSInteger,SliderTag) {
     
     //设置写数据成功的block
     [baby setBlockOnDidWriteValueForCharacteristicAtChannel:channelOnCharacteristicView block:^(CBCharacteristic *characteristic, NSError *error) {
-        
+        [SVProgressHUD showInfoWithStatus:@"写入成功!"];
         NSLog(@"setBlockOnDidWriteValueForCharacteristicAtChannel characteristic:%@ and new value:%@",characteristic.UUID, characteristic.value);
     }];
     

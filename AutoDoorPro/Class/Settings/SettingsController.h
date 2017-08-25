@@ -16,7 +16,12 @@ UIKIT_EXTERN BOOL isPopSettingViewController;
     __block  NSMutableArray *descriptors;
 }
 
-@property (nonatomic,strong)CBCharacteristic *characteristic;
+// 写入的特征
+@property (nonatomic,strong)CBCharacteristic *writeCharacteristic;
+// 通知的特征
+@property (nonatomic,strong) CBCharacteristic *notifyCharacteristic;
+
+//@property (nonatomic,strong)CBCharacteristic *characteristic;
 @property (nonatomic,strong)CBPeripheral *currPeripheral;
 
 @end

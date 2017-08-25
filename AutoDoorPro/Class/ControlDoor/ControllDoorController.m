@@ -11,8 +11,11 @@
 #define channelOnPeropheralView @"peripheralView"
 
 @interface ControllDoorController ()
+// 写入的特征
+@property (nonatomic,strong)CBCharacteristic *writeCharacteristic;
+// 通知的特征
+@property (nonatomic,strong) CBCharacteristic *notifyCharacteristic;
 
-@property (nonatomic,strong)CBCharacteristic *characteristic;
 
 /** 假导航*/
 @property (nonatomic,strong) XHNavView *navBar;
@@ -40,7 +43,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (isPopSettingViewController) {
-        baby.channel(channelOnPeropheralView).characteristicDetails(self.currPeripheral,self.characteristic);
+        baby.channel(channelOnPeropheralView).characteristicDetails(self.currPeripheral,self.writeCharacteristic);
     }
 }
 
@@ -107,9 +110,11 @@
                 SettingsController *vc = [SettingsController new];
                 vc->baby = baby;
                 vc.currPeripheral = weakSelf.currPeripheral;
-                vc.characteristic = weakSelf.characteristic;
-                if(weakSelf.characteristic.isNotifying) {
-                    [self->baby cancelNotify:weakSelf.currPeripheral characteristic:weakSelf.characteristic];
+                vc.writeCharacteristic = weakSelf.writeCharacteristic;
+                vc.notifyCharacteristic = weakSelf.notifyCharacteristic;
+                //vc.characteristic = weakSelf.characteristic;
+                if(weakSelf.notifyCharacteristic.isNotifying) {
+                    [self->baby cancelNotify:weakSelf.currPeripheral characteristic:weakSelf.notifyCharacteristic];
                 }
                 isPopSettingViewController = NO;
                 [weakSelf.navigationController pushViewController:vc animated:YES];
@@ -137,70 +142,111 @@
         [SVProgressHUD showErrorWithStatus:@"peripheral已经断开连接，请重新连接"];
         return;
     }
-    if (self.characteristic.properties & CBCharacteristicPropertyNotify ||  self.characteristic.properties & CBCharacteristicPropertyIndicate) {
+    [baby notify:self.currPeripheral characteristic:self.notifyCharacteristic block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
+        weakSelf.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value.description];
         
-        if(self.characteristic.isNotifying) {
-            [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
-        }else{
-            [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
-            // 5502 0aaa bbcc ddee ffa3
-            [baby notify:self.currPeripheral
-          characteristic:self.characteristic
-                   block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
-                       NSLog(@"notify block");
-                       NSLog(@"new value %@",characteristics.value);
-                       weakSelf.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value.description];
-                       NSString *value = characteristics.value.description;
-                       NSLog(@"%@",value);
-                       if ([value hasPrefix:@"<5502"]) {
-                           weakSelf.hardwareVersion.text = [NSString stringWithFormat:@"硬件版本:%@",[BLETool hardwareInfo:value]];
-                           weakSelf.softwareVersion.text = [NSString stringWithFormat:@"软件版本:%@",[BLETool softwareInfo:value]];
-                       }
-                   }];
+        NSString *value = characteristics.value.description;
+        
+        NSString *v = [BLECode hexadecimalString:characteristics.value];
+        
+        NSLog(@"---%@",v);
+        
+        NSLog(@"%@",value);
+        
+        if ([v hasPrefix:@"5502"] && v.length == 20) {
+            weakSelf.hardwareVersion.text = [NSString stringWithFormat:@"硬件版本:%@",[BLETool hardwareInfo:v]];
+            weakSelf.softwareVersion.text = [NSString stringWithFormat:@"软件版本:%@",[BLETool softwareInfo:v]];
         }
-    }
-    else{
-        //[SVProgressHUD showErrorWithStatus:@"这个characteristic没有nofity的权限"];
-        return;
-    }
+    }];
+//    if (self.characteristic.properties & CBCharacteristicPropertyNotify ||  self.characteristic.properties & CBCharacteristicPropertyIndicate) {
+//        
+//        if(self.characteristic.isNotifying) {
+//            
+//            
+//            
+//            
+//            //[self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
+//        }else{
+//            [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
+//            // 5502 0aaa bbcc ddee ffa3
+//            [baby notify:self.currPeripheral
+//          characteristic:self.characteristic
+//                   block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
+//                       NSLog(@"notify block");
+//                       NSLog(@"new value %@",characteristics.value);
+//                       
+//                       weakSelf.reciveLabel.text = [NSString stringWithFormat:@"接收到的数据:%@",characteristics.value.description];
+//                       
+//                       NSString *value = characteristics.value.description;
+//                       
+//                       NSLog(@"%@",value);
+//                       
+//                       NSString *v = [BLECode hexadecimalString:characteristics.value];
+//                       
+//                       NSLog(@"---%@",v);
+//                       
+//                       if ([v hasPrefix:@"5502"] && v.length == 20) {
+//                           weakSelf.hardwareVersion.text = [NSString stringWithFormat:@"硬件版本:%@",[BLETool hardwareInfo:v]];
+//                           weakSelf.softwareVersion.text = [NSString stringWithFormat:@"软件版本:%@",[BLETool softwareInfo:v]];
+//                       }
+//                   }];
+//        }
+//    }
+//    else{
+//        //[SVProgressHUD showErrorWithStatus:@"这个characteristic没有nofity的权限"];
+//        return;
+//    }
 
 }
 
 // 获取版本号
 - (void)getVersion {
+//    if (!self.writeCharacteristic) {
+//        return;
+//    }
+    
     self.sendLabel.text = [[NSString stringWithFormat:@"发送指令:%@",[BLECode hexToBytes:BLE_ORDER_GETVERSION]] uppercaseString];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
-    [self.currPeripheral writeValue:[BLECode hexToBytes:BLE_ORDER_GETVERSION] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    [self.currPeripheral writeValue:[BLECode hexToBytes:BLE_ORDER_GETVERSION] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (void)fengCode {
+//    if (!self.writeCharacteristic) {
+//        return;
+//    }
     self.sendLabel.text = [[NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_FENGMING]] uppercaseString];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
-    [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_FENGMING] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_FENGMING] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (void)openCode {
+//    if (!self.writeCharacteristic) {
+//        return;
+//    }
     self.sendLabel.text = [[NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_OPEN]] uppercaseString];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
-    [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_OPEN] forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_OPEN] forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (void)closeCode {
+//    if (!self.writeCharacteristic) {
+//        return;
+//    }
     self.sendLabel.text = [[NSString stringWithFormat:@"发送指令:%@",[BLECode getCheckSum:BLE_ORDER_CLOSE]] uppercaseString];
     if (![self isSuccess]) {
         [SVProgressHUD showErrorWithStatus:@"已经断开连接或者链接不匹配"];
         return;
     }
-    [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_CLOSE]forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+    [self.currPeripheral writeValue:[BLECode getCheckSum:BLE_ORDER_CLOSE]forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (void)requestData {
@@ -214,7 +260,7 @@
 
 // 判断是否已经找到符合的特征
 - (BOOL)isSuccess {
-    if (self.currPeripheral.state == CBPeripheralStateConnected && self.characteristic) {
+    if (self.currPeripheral.state == CBPeripheralStateConnected && self.writeCharacteristic) {
         return YES;
     } else {
         return NO;
@@ -259,10 +305,44 @@
         [rhythm beats];
     }];
     //设置发现设service的Characteristics的委托
+    weakify(self);
     [baby setBlockOnDiscoverCharacteristicsAtChannel:channelOnPeropheralView block:^(CBPeripheral *peripheral, CBService *service, NSError *error) {
         NSLog(@"===service name:%@",service.UUID);
+        
+        
+        
+        
         //插入row到tableview
         //[weakSelf insertRowToTableView:service];
+//        strongify(self);
+//        
+        [service.characteristics enumerateObjectsUsingBlock:^(CBCharacteristic * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            CBCharacteristic *characteristic = obj;
+            
+            // 写入的特征值
+
+            if ([characteristic.UUID.UUIDString isEqualToString:@"FFF6"]) {
+                if (!weakSelf.writeCharacteristic) {
+                    if (characteristic.properties & CBCharacteristicPropertyWrite) {
+                        weakSelf.writeCharacteristic = characteristic;
+                        [weakSelf getVersion];
+                    }
+                }
+            }
+            // 通知的特征值
+            if ([characteristic.UUID.UUIDString isEqualToString:@"FFF7"]) {
+                
+                if (!weakSelf.notifyCharacteristic) {
+                    weakSelf.notifyCharacteristic = characteristic;
+                    [weakSelf notify];
+                }
+                
+            }
+        
+            
+        }];
+        
         
     }];
     
@@ -271,20 +351,23 @@
         NSLog(@"characteristic name:%@ value is:%@",characteristics.UUID,characteristics.value);
         
         NSData *data = characteristics.value;
+        
+        
+        
     }];
+    
     //设置写数据成功的block
     [baby setBlockOnDidWriteValueForCharacteristicAtChannel:channelOnPeropheralView block:^(CBCharacteristic *characteristic, NSError *error) {
+        
+        [SVProgressHUD showInfoWithStatus:@"写入成功!"];
         
     }];
 
     //设置发现characteristics的descriptors的委托
     [baby setBlockOnDiscoverDescriptorsForCharacteristicAtChannel:channelOnPeropheralView block:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         NSLog(@"===characteristic name:%@",characteristic.service.UUID);
-        if (characteristic.descriptors.count > 0) {
-            weakSelf.characteristic = characteristic;
-            [weakSelf notify];
-            [weakSelf getVersion];
-        }
+        
+
     }];
     //设置读取Descriptor的委托
     [baby setBlockOnReadValueForDescriptorsAtChannel:channelOnPeropheralView block:^(CBPeripheral *peripheral, CBDescriptor *descriptor, NSError *error) {

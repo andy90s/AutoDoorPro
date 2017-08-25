@@ -76,4 +76,8 @@ UIKIT_EXTERN NSString *const BLE_ORDER_FACTORY_RESET;
  */
 + (NSString *)toDecimalWithBinary:(NSString *)binary;
 
+
+//将传入的NSData类型转换成NSString并返回
++ (NSString*)hexadecimalString:(NSData *)data;
+
 @end
